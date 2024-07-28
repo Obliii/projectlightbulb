@@ -13,7 +13,7 @@ signal ChangeMusic(MusicPath)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	# Put Signals together so that they can be called from different scripts.
+	# Put Signals together so that they can be called from different scripts. 
 	SwapScene.connect(SwapGameScene())
 	ChangeMusic.connect(SwapCurrentMusic())
 	
