@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://p2stssxfagl1"]
 
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_q07h7"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_wvl4i"]
 
 [sub_resource type="SystemFont" id="SystemFont_d2gpc"]
 font_names = PackedStringArray("Fantasy")
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_q07h7")
+script = ExtResource("1_wvl4i")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
