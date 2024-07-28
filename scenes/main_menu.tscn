@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://p2stssxfagl1"]
+[gd_scene load_steps=5 format=3 uid="uid://dfd63amnu5qhu"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_dov26"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_pndb1"]
+[ext_resource type="PackedScene" uid="uid://day7umjfyes1g" path="res://scenes/options_menu.tscn" id="2_pejd7"]
 
 [sub_resource type="SystemFont" id="SystemFont_d2gpc"]
 font_names = PackedStringArray("Fantasy")
@@ -15,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dov26")
+script = ExtResource("1_pndb1")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -87,3 +88,7 @@ layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_vwfav")
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
+
+[node name="Options_Menu" parent="." instance=ExtResource("2_pejd7")]
+visible = false
+layout_mode = 1
