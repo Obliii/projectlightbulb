@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfd63amnu5qhu"]
+[gd_scene load_steps=5 format=3 uid="uid://c0cfjf3mpihx8"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_pndb1"]
-[ext_resource type="PackedScene" uid="uid://day7umjfyes1g" path="res://scenes/options_menu.tscn" id="2_pejd7"]
+[ext_resource type="PackedScene" path="res://scenes/options_menu.tscn" id="2_pejd7"]
 
 [sub_resource type="SystemFont" id="SystemFont_d2gpc"]
 font_names = PackedStringArray("Fantasy")

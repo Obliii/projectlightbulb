@@ -1,28 +1,34 @@
 extends Node
 
-# Level State - Dictates music.
-signal LevelComplete
-signal LevelFailed
+########################
+#    Signals / Vars    #
+########################
 
-# Scenes woo.
-signal SwapScene(ScenePath)
+@export var CurrentLevelPath : String
 
-# Change Music to Path
-signal ChangeMusic(MusicPath)
+# Level Signals
+signal LevelChanged # Notifies Game that level was changed.
+signal LevelRestarted # Notifies Game that level was restarted.
+signal MusicChanged # After calling "ChangeMusic" Function.
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	
-	# Put Signals together so that they can be called from different scripts.
-	SwapScene.connect(SwapGameScene())
-	ChangeMusic.connect(SwapCurrentMusic())
-	
-	LevelComplete.connect()
-	
+signal TimeOver # Time Limit Surpassed
 
-# Simply Change Game Scenes
-func SwapGameScene(ScenePath):
+# Player Signals
+signal PlayerDeath # Notifies Player has died. TODO: GAME OVER.
+
+##########################
+# Basic Scene Management #
+##########################\
+
+func QuitGame():
+	get_tree().quit(1)
+
+# Changing the Level by inputting a Level Path.
+func ChangeLevel(ScenePath): 
 	get_tree().change_scene_to_file(ScenePath)
-
-func SwapCurrentMusic(MusicPath):
 	
+	CurrentLevelPath = ScenePath
+	LevelChanged.emit()
+
+func RestartLevel():
+	ChangeLevel(CurrentLevelPath)

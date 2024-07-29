@@ -13,7 +13,7 @@ func _ready():
 		handle_connecting_signals()
 		
 func on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(start_level)
+	GameManager.ChangeLevel("res://scenes/debugscene.tscn") #TODO: Change this to the first level.
 	
 func on_options_pressed() -> void:
 	margin_container.visible = false
@@ -21,7 +21,7 @@ func on_options_pressed() -> void:
 	options_menu.visible = true
 
 func on_exit_pressed() -> void:
-	get_tree().quit()
+	GameManager.QuitGame()
 
 func on_exit_options_menu() -> void:
 	margin_container.visible = true
