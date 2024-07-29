@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://day7umjfyes1g"]
+[gd_scene load_steps=4 format=3 uid="uid://bmbsmhyi5dsun"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_vmmpu"]
 
 [sub_resource type="SystemFont" id="SystemFont_mw4n5"]
 font_names = PackedStringArray("Fantasy")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_uwiib"]
 font_names = PackedStringArray("Fantasy")
+subpixel_positioning = 0
 
 [node name="Options_Menu" type="Control"]
 layout_mode = 3
