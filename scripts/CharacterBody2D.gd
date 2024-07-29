@@ -44,3 +44,18 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+
+
+
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("Rigidbody"):
+		body.collision_layer = 1
+		body.collision_mask = 1
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("Rigidbody"):
+		body.collision_layer = 2
+		body.collision_mask = 2
