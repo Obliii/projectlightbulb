@@ -60,12 +60,24 @@ alignment = 1
 [node name="Seperator2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="FullscreenCheck" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Windowed"
+text = "Fullscreen"
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HSlider2" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -76,3 +88,5 @@ layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_uwiib")
 theme_override_font_sizes/font_size = 32
 text = "Back"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
