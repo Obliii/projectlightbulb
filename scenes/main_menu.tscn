@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0cfjf3mpihx8"]
+[gd_scene load_steps=6 format=3 uid="uid://dfd63amnu5qhu"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_pndb1"]
-[ext_resource type="PackedScene" uid="uid://bmbsmhyi5dsun" path="res://scenes/options_menu.tscn" id="2_pejd7"]
+[ext_resource type="PackedScene" uid="uid://day7umjfyes1g" path="res://scenes/options_menu.tscn" id="2_pejd7"]
 [ext_resource type="AudioStream" uid="uid://bt1p6cfqcrm5u" path="res://assets/music/vector-oh-yeah!!-made-with-Voicemod.mp3" id="3_ojqy7"]
 
 [sub_resource type="SystemFont" id="SystemFont_d2gpc"]

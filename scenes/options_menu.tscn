@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmbsmhyi5dsun"]
+[gd_scene load_steps=4 format=3 uid="uid://day7umjfyes1g"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_vmmpu"]
 
@@ -60,13 +60,15 @@ alignment = 1
 [node name="Seperator2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Placeholder1_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Blah blah"
+text = "Windowed"
 
-[node name="Placeholder2_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Blah blah"
+
+[node name="HSlider2" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Back_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
