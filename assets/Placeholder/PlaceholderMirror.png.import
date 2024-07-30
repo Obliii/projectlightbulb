@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhkeim8kkavhy"
-path="res://.godot/imported/Placeholder TestTileset.png-07a77228e55d26d7f9181857f9fbf4cf.ctex"
+uid="uid://cir2te1rnt8bp"
+path="res://.godot/imported/PlaceholderMirror.png-32d9e73785c9b60b5dccb2fc7cca9a21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Placeholder TestTileset.png"
-dest_files=["res://.godot/imported/Placeholder TestTileset.png-07a77228e55d26d7f9181857f9fbf4cf.ctex"]
+source_file="res://assets/Placeholder/PlaceholderMirror.png"
+dest_files=["res://.godot/imported/PlaceholderMirror.png-32d9e73785c9b60b5dccb2fc7cca9a21.ctex"]
 
 [params]
 
