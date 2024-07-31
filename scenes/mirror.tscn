@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctnle2f1re2aa"]
-
-[ext_resource type="Texture2D" uid="uid://cir2te1rnt8bp" path="res://assets/Placeholder/PlaceholderMirror.png" id="1_hjnlx"]
-
-[node name="Mirror" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_hjnlx")

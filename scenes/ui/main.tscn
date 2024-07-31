@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c7pqxdt1m3w05"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 79.0
+offset_bottom = 11.5
+grow_vertical = 2
+scale = Vector2(14.36, 23.6449)
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "test scene"
+horizontal_alignment = 1
+vertical_alignment = 1

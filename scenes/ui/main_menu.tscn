@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfd63amnu5qhu"]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_pndb1"]
+[ext_resource type="PackedScene" uid="uid://day7umjfyes1g" path="res://scenes/ui/options_menu.tscn" id="2_pejd7"]
+[ext_resource type="AudioStream" uid="uid://dewjexmbxkn57" path="res://assets/music/MainMenuTest.mp3" id="3_txl7r"]
+
+[sub_resource type="SystemFont" id="SystemFont_d2gpc"]
+font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="SystemFont" id="SystemFont_vwfav"]
+font_names = PackedStringArray("Fantasy")
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pndb1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = SubResource("SystemFont_d2gpc")
+theme_override_font_sizes/font_size = 64
+text = "LIGHT WIZARD GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_vwfav")
+theme_override_font_sizes/font_size = 40
+text = "START"
+
+[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_vwfav")
+theme_override_font_sizes/font_size = 40
+text = "OPTIONS"
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_vwfav")
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+
+[node name="Options_Menu" parent="." instance=ExtResource("2_pejd7")]
+visible = false
+layout_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_txl7r")
+volume_db = 10.0
+autoplay = true
+bus = &"Music"
