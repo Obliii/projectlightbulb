@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1ch25ec6elli"]
+[gd_scene load_steps=14 format=3 uid="uid://d1ch25ec6elli"]
 
 [ext_resource type="Script" path="res://scripts/LevelDetails.gd" id="1_jfsvw"]
 [ext_resource type="PackedScene" uid="uid://d1ncb4sh7y5ni" path="res://objects/Player/character.tscn" id="2_d8fo5"]
@@ -213,6 +213,8 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_hkbhp")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vkq67"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -299,3 +301,7 @@ texture = ExtResource("9_8kggl")
 [node name="Dark-ledge-left" type="Sprite2D" parent="World Elements"]
 position = Vector2(106, -242)
 texture = ExtResource("10_lfx1y")
+
+[node name="WorldBoundary-tmp" type="CollisionShape2D" parent="."]
+position = Vector2(23, 58)
+shape = SubResource("WorldBoundaryShape2D_vkq67")

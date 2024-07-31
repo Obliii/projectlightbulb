@@ -3,7 +3,7 @@ extends Camera2D
 
 ## For the Camera to be able to follow the Player.
 @export var Player: CharacterBody2D
-var max_distance = 500.0
+var max_distance = 700.0
 
 func check_player_position():
 	if Player.position.distance_to(self.position) > max_distance:
