@@ -1,15 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1ch25ec6elli"]
+[gd_scene load_steps=16 format=3 uid="uid://d1ch25ec6elli"]
 
 [ext_resource type="Script" path="res://scripts/LevelDetails.gd" id="1_jfsvw"]
 [ext_resource type="PackedScene" uid="uid://d1ncb4sh7y5ni" path="res://objects/Player/character.tscn" id="2_d8fo5"]
 [ext_resource type="Texture2D" uid="uid://dhkeim8kkavhy" path="res://assets/Placeholder/Placeholder TestTileset.png" id="3_3rqrr"]
 [ext_resource type="PackedScene" uid="uid://68amu3qivnav" path="res://objects/pushable_2.tscn" id="4_nrhbj"]
+[ext_resource type="PackedScene" uid="uid://dk4ep2ocn4d8" path="res://scenes/ui/pause_menu.tscn" id="4_xw343"]
 [ext_resource type="PackedScene" uid="uid://bffva8bnmfesh" path="res://objects/ScrollingCamera.tscn" id="5_feqno"]
 [ext_resource type="Texture2D" uid="uid://csdrqumekjamb" path="res://assets/background/dark-pillar.png" id="6_vmifg"]
 [ext_resource type="Texture2D" uid="uid://opake6a331w5" path="res://assets/background/dark-tallw.png" id="7_5kk68"]
 [ext_resource type="Texture2D" uid="uid://btebkr537bxio" path="res://assets/background/dark-tilefloor.png" id="8_x83pj"]
 [ext_resource type="Texture2D" uid="uid://pei3lgg73cbq" path="res://assets/background/dark-ledge-right.png" id="9_8kggl"]
 [ext_resource type="Texture2D" uid="uid://dj2ev5ndm07ui" path="res://assets/background/dark-ledge-left.png" id="10_lfx1y"]
+[ext_resource type="AudioStream" uid="uid://c36acn5wp81tu" path="res://assets/music/reflect refract reignite (lightless)_2024-08-01.mp3" id="11_ecpw1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hkbhp"]
 texture = ExtResource("3_3rqrr")
@@ -239,6 +241,10 @@ zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 Player = NodePath("../Character")
 
+[node name="pause_menu" parent="ScrollingCamera" instance=ExtResource("4_xw343")]
+process_mode = 3
+visible = false
+
 [node name="Character" parent="." instance=ExtResource("2_d8fo5")]
 position = Vector2(-598, -83)
 scale = Vector2(0.3, 0.3)
@@ -305,3 +311,9 @@ texture = ExtResource("10_lfx1y")
 [node name="WorldBoundary-tmp" type="CollisionShape2D" parent="."]
 position = Vector2(23, 58)
 shape = SubResource("WorldBoundaryShape2D_vkq67")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ecpw1")
+volume_db = 3.067
+autoplay = true
+bus = &"Music"

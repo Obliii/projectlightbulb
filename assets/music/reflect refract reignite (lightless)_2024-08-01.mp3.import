@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c36acn5wp81tu"
+path="res://.godot/imported/reflect refract reignite (lightless)_2024-08-01.mp3-eea09589ed70f91139d73b650a72041d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/reflect refract reignite (lightless)_2024-08-01.mp3"
+dest_files=["res://.godot/imported/reflect refract reignite (lightless)_2024-08-01.mp3-eea09589ed70f91139d73b650a72041d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
