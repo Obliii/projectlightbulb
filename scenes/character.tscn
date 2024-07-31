@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1ncb4sh7y5ni"]
+[gd_scene load_steps=13 format=3 uid="uid://d1ncb4sh7y5ni"]
 
-[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_klpmb"]
+[ext_resource type="Script" path="res://scripts/Player/player.gd" id="1_otwkr"]
+[ext_resource type="Script" path="res://scripts/Player/PlayerStateMachine.gd" id="2_82wuj"]
 [ext_resource type="Texture2D" uid="uid://ban8vynekmml7" path="res://assets/testprotag.png" id="2_dtq1s"]
+[ext_resource type="Script" path="res://scripts/Player/States/WalkState.gd" id="3_mxsvf"]
+[ext_resource type="Script" path="res://scripts/Player/States/IdleState.gd" id="4_4mfob"]
+[ext_resource type="Script" path="res://scripts/Player/States/JumpState.gd" id="5_h8uob"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ponx"]
 atlas = ExtResource("2_dtq1s")
@@ -48,14 +52,29 @@ size = Vector2(177, 484)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msyku"]
 size = Vector2(130, 254)
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "entity")]
 collision_layer = 3
-script = ExtResource("1_klpmb")
+script = ExtResource("1_otwkr")
+sprite = NodePath("AnimatedSprite2D")
+entity = NodePath(".")
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_82wuj")
+initial_state = NodePath("PlayerIdleState")
+
+[node name="PlayerWalkState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("3_mxsvf")
+
+[node name="PlayerIdleState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_4mfob")
+
+[node name="PlayerJumpState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("5_h8uob")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_pjhpb")
-animation = &"Idle"
+animation = &"Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(21, 8)
@@ -66,7 +85,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(19, 143)
+position = Vector2(25, 120)
 shape = SubResource("RectangleShape2D_msyku")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

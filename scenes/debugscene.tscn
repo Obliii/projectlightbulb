@@ -216,6 +216,8 @@ LevelName = "Debug Level"
 [node name="Character" parent="." instance=ExtResource("4_lc846")]
 position = Vector2(72, -385)
 scale = Vector2(0.3, 0.3)
+speed = null
+jump_vel = null
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 position = Vector2(-72, 385)
