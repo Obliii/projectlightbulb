@@ -242,7 +242,7 @@ position = Vector2(-598, -83)
 scale = Vector2(0.3, 0.3)
 
 [node name="Pushable2" parent="." instance=ExtResource("4_nrhbj")]
-position = Vector2(-405, -70)
+position = Vector2(278, -386)
 mass = 50.0
 
 [node name="World Elements" type="Node2D" parent="."]
