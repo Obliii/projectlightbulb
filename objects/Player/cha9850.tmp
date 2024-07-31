@@ -1,11 +1,39 @@
 [gd_scene load_steps=13 format=3 uid="uid://d1ncb4sh7y5ni"]
 
-[ext_resource type="Script" path="res://objects/Player/player.gd" id="1_otwkr"]
 [ext_resource type="Script" path="res://objects/Player/PlayerStateMachine.gd" id="2_82wuj"]
 [ext_resource type="Texture2D" uid="uid://ban8vynekmml7" path="res://assets/testprotag.png" id="2_dtq1s"]
 [ext_resource type="Script" path="res://objects/Player/States/WalkState.gd" id="3_mxsvf"]
 [ext_resource type="Script" path="res://objects/Player/States/IdleState.gd" id="4_4mfob"]
 [ext_resource type="Script" path="res://objects/Player/States/JumpState.gd" id="5_h8uob"]
+
+[sub_resource type="GDScript" id="GDScript_yk1du"]
+script/source = "extends CharacterBody2D
+
+@export var sprite : AnimatedSprite2D
+@export var entity : CharacterBody2D
+
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+
+# Everything else is running on the PlayerStateMachine and its states.
+	
+func _physics_process(delta):
+	# TODO: Put Gravity into it's own state?
+	if !is_on_floor():
+		velocity.y += gravity * delta
+	
+	move_and_slide()
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group(\"Rigidbody\"):
+		body.collision_layer = 1
+		body.collision_mask = 1
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group(\"Rigidbody\"):
+		body.collision_layer = 2
+		body.collision_mask = 2
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ponx"]
 atlas = ExtResource("2_dtq1s")
@@ -52,11 +80,10 @@ size = Vector2(177, 484)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msyku"]
 size = Vector2(130, 254)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "entity")]
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "entity")]
 process_mode = 1
-visibility_layer = 2
 collision_layer = 3
-script = ExtResource("1_otwkr")
+script = SubResource("GDScript_yk1du")
 sprite = NodePath("AnimatedSprite2D")
 entity = NodePath(".")
 
@@ -76,7 +103,7 @@ script = ExtResource("5_h8uob")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_pjhpb")
-animation = &"Idle"
+animation = &"Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(21, 8)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bffva8bnmfesh"]
+
+[ext_resource type="Script" path="res://scripts/CameraFollower.gd" id="1_eay7l"]
+
+[node name="ScrollingCamera" type="Camera2D"]
+process_mode = 1
+script = ExtResource("1_eay7l")

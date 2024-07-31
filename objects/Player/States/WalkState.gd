@@ -3,7 +3,7 @@ extends PlayerState
 
 # Movement State
 
-const WALKSPEED := 200.0
+const WALKSPEED := 300.0
 
 var MoveSpeed
 var playerdir : float

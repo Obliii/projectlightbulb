@@ -1,8 +1,8 @@
 class_name PlayerJumpState
 extends PlayerState
 
-var MoveSpeed = 150.0
-var JumpHeight = -400.0
+var MoveSpeed = 250.0
+var JumpHeight = -550.0
 
 func EnterState():
 	parent.sprite.play("Jump")
