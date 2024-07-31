@@ -13,7 +13,7 @@ func _ready():
 		handle_connecting_signals()
 		
 func on_start_pressed() -> void:
-	GameManager.ChangeLevel("res://scenes/debugscene.tscn") #TODO: Change this to the first level.
+	GameManager.ChangeLevel("res://scenes/levels/debugscene.tscn") #TODO: Change this to the first level.
 	
 func on_options_pressed() -> void:
 	margin_container.visible = false
