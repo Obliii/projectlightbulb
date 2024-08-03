@@ -1,14 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfd63amnu5qhu"]
+[gd_scene load_steps=21 format=3 uid="uid://dfd63amnu5qhu"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_pndb1"]
+[ext_resource type="Texture2D" uid="uid://y02ib47ake5e" path="res://assets/ui/uistartbutton.png" id="2_o8d1g"]
 [ext_resource type="PackedScene" uid="uid://day7umjfyes1g" path="res://scenes/ui/options_menu.tscn" id="2_pejd7"]
+[ext_resource type="Texture2D" uid="uid://c6s85xw1ycwo0" path="res://assets/ui/uititle.png" id="2_s43gr"]
+[ext_resource type="Texture2D" uid="uid://cbl2n78suf8y5" path="res://assets/ui/uistartbuttonhover.png" id="3_4ge0r"]
 [ext_resource type="AudioStream" uid="uid://dewjexmbxkn57" path="res://assets/music/MainMenuTest.mp3" id="3_txl7r"]
-
-[sub_resource type="SystemFont" id="SystemFont_d2gpc"]
-font_names = PackedStringArray("Fantasy")
+[ext_resource type="Texture2D" uid="uid://cmjtqn04m6fka" path="res://assets/ui/uioptionsbutton.png" id="4_2ngdx"]
+[ext_resource type="Texture2D" uid="uid://csdrqumekjamb" path="res://assets/background/dark-pillar.png" id="4_eb7hn"]
+[ext_resource type="Texture2D" uid="uid://opake6a331w5" path="res://assets/background/dark-tallw.png" id="5_5oboh"]
+[ext_resource type="Texture2D" uid="uid://ctagrikqkb6lv" path="res://assets/ui/uioptionsbuttonhover.png" id="5_rcrgx"]
+[ext_resource type="Texture2D" uid="uid://da7cai1mnorob" path="res://assets/ui/uiquitbutton.png" id="6_lk550"]
+[ext_resource type="Texture2D" uid="uid://btebkr537bxio" path="res://assets/background/dark-tilefloor.png" id="6_v7wp3"]
+[ext_resource type="Texture2D" uid="uid://8psiciq2w4du" path="res://assets/ui/uiquitbuttonhover.png" id="7_w4upx"]
 
 [sub_resource type="SystemFont" id="SystemFont_vwfav"]
 font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc3aw"]
+texture = ExtResource("2_o8d1g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5vi26"]
+texture = ExtResource("3_4ge0r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4fm0"]
+texture = ExtResource("4_2ngdx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bip7g"]
+texture = ExtResource("5_rcrgx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxyq3"]
+texture = ExtResource("6_lk550")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3buyf"]
+texture = ExtResource("7_w4upx")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -41,21 +66,14 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 140
 
 [node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 18
-theme_override_fonts/font = SubResource("SystemFont_d2gpc")
-theme_override_font_sizes/font_size = 64
-text = "LIGHT WIZARD GAME"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(952, 222)
+texture = ExtResource("2_s43gr")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -70,25 +88,104 @@ alignment = 1
 layout_mode = 2
 
 [node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_vwfav")
 theme_override_font_sizes/font_size = 40
-text = "START"
+theme_override_styles/normal = SubResource("StyleBoxTexture_dc3aw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5vi26")
 
 [node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_vwfav")
 theme_override_font_sizes/font_size = 40
-text = "OPTIONS"
+theme_override_styles/normal = SubResource("StyleBoxTexture_k4fm0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bip7g")
 
 [node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_vwfav")
 theme_override_font_sizes/font_size = 40
-text = "EXIT"
+theme_override_styles/normal = SubResource("StyleBoxTexture_fxyq3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3buyf")
+
+[node name="World Elements" type="Node2D" parent="MarginContainer"]
+
+[node name="Dark-pillar" type="Sprite2D" parent="MarginContainer/World Elements"]
+show_behind_parent = true
+visibility_layer = 7
+z_index = -1
+position = Vector2(291, 443.5)
+scale = Vector2(1, 0.997794)
+texture = ExtResource("4_eb7hn")
+
+[node name="Dark-pillar2" type="Sprite2D" parent="MarginContainer/World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(890, 447)
+texture = ExtResource("4_eb7hn")
+
+[node name="Dark-pillar3" type="Sprite2D" parent="MarginContainer/World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(1488, 448)
+texture = ExtResource("4_eb7hn")
+
+[node name="Dark-pillar4" type="Sprite2D" parent="MarginContainer/World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(2090, 448)
+texture = ExtResource("4_eb7hn")
+
+[node name="Dark-pillar5" type="Sprite2D" parent="MarginContainer/World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(-319, 445)
+texture = ExtResource("4_eb7hn")
+
+[node name="Dark-tallw" type="Sprite2D" parent="MarginContainer/World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(1187, 492)
+scale = Vector2(0.9325, 0.941912)
+texture = ExtResource("5_5oboh")
+
+[node name="Dark-tallw2" type="Sprite2D" parent="MarginContainer/World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(-14, 482)
+scale = Vector2(0.9325, 0.941912)
+texture = ExtResource("5_5oboh")
+
+[node name="Dark-tilefloor" type="Sprite2D" parent="MarginContainer/World Elements"]
+position = Vector2(234, 1109)
+texture = ExtResource("6_v7wp3")
+
+[node name="Dark-tilefloor6" type="Sprite2D" parent="MarginContainer/World Elements"]
+position = Vector2(-127, 1110)
+texture = ExtResource("6_v7wp3")
+
+[node name="Dark-tilefloor7" type="Sprite2D" parent="MarginContainer/World Elements"]
+position = Vector2(2042, 1111)
+texture = ExtResource("6_v7wp3")
+
+[node name="Dark-tilefloor2" type="Sprite2D" parent="MarginContainer/World Elements"]
+position = Vector2(596, 1109)
+texture = ExtResource("6_v7wp3")
+
+[node name="Dark-tilefloor3" type="Sprite2D" parent="MarginContainer/World Elements"]
+position = Vector2(955, 1111)
+texture = ExtResource("6_v7wp3")
+
+[node name="Dark-tilefloor4" type="Sprite2D" parent="MarginContainer/World Elements"]
+position = Vector2(1318, 1111)
+texture = ExtResource("6_v7wp3")
+
+[node name="Dark-tilefloor5" type="Sprite2D" parent="MarginContainer/World Elements"]
+position = Vector2(1680, 1111)
+texture = ExtResource("6_v7wp3")
 
 [node name="Options_Menu" parent="." instance=ExtResource("2_pejd7")]
 visible = false

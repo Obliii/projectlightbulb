@@ -34,7 +34,14 @@ func fullscreenToggle():
 func _on_resume_pressed():
 	pauseMenu()
 	print("resuming")
+	
+func _on_menu_pressed():
+	get_tree().paused = false
+	GameManager.ChangeLevel("res://scenes/ui/main_menu.tscn") #TODO: Change this to the first level.
 
 func _on_quit_pressed():
 	GameManager.QuitGame()
 	print("quiting")
+
+
+
