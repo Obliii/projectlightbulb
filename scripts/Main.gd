@@ -11,10 +11,12 @@ signal LevelChanged # Notifies Game that level was changed.
 signal LevelRestarted # Notifies Game that level was restarted.
 signal MusicChanged # After calling "ChangeMusic" Function.
 
+signal PuzzleCompleted # Puzzle Completed for a little jingle.
+
 signal TimeOver # Time Limit Surpassed
 
 # Player Signals
-signal PlayerDeath # Notifies Player has died. TODO: GAME OVER.
+signal PlayerDeath # Notifies Player has died. TODO: GAME OVER????
 
 ##########################
 # Basic Scene Management #
