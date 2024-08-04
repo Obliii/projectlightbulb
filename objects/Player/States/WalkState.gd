@@ -3,7 +3,7 @@ extends PlayerState
 
 # Movement State
 
-const WALKSPEED := 300.0
+const WALKSPEED := 325.0
 
 var MoveSpeed
 var playerdir : float
@@ -25,13 +25,16 @@ func Physics_Update(_delta: float):
 	
 	parent.velocity.x = playerdir * MoveSpeed
 	
-	JumpInput()
 	CheckStateConditions()
-	
+
+# Check the many different things the player could do while moving.	
 func CheckStateConditions():
 	if playerdir == 0:
 		Transitioned.emit("PlayerIdleState")
 		
-func JumpInput():
+	if Input.is_action_just_pressed("shoot"):
+		Transitioned.emit("PlayerShootState")
+		
 	if Input.is_action_just_pressed("jump"):
 		Transitioned.emit("PlayerJumpState")
+
