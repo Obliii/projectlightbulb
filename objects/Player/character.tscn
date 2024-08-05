@@ -102,7 +102,7 @@ target_position = Vector2(120, 0)
 collision_mask = 3
 
 [node name="AboveRayCast2D" type="RayCast2D" parent="."]
-position = Vector2(32, 144)
+position = Vector2(31, 144)
 target_position = Vector2(120, 0)
 collision_mask = 3
 

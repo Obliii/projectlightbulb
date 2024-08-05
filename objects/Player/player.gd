@@ -24,7 +24,6 @@ func fire_projectile():
 	get_tree().root.add_child(lightinstance)
 		
 func _physics_process(delta):
-	# TODO: Put Gravity into it's own state?
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	
