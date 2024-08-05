@@ -14,7 +14,7 @@ func CheckStateConditions():
 		Transitioned.emit("PlayerWalkState")	
 
 	# JUMP STATE
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
 		Transitioned.emit("PlayerJumpState")
 
 	# SHOOT STATE

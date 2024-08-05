@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bclmhi7antx4g"]
+
+[ext_resource type="Script" path="res://objects/Player/LightAbility.gd" id="1_cqo36"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bgqj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7y8an"]
+
+[node name="LightAbility" type="Area2D"]
+process_mode = 1
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 2
+script = ExtResource("1_cqo36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2bgqj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7y8an")

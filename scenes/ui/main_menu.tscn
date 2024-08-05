@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dfd63amnu5qhu"]
+[gd_scene load_steps=22 format=3 uid="uid://dfd63amnu5qhu"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_pndb1"]
 [ext_resource type="Texture2D" uid="uid://y02ib47ake5e" path="res://assets/ui/uistartbutton.png" id="2_o8d1g"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://da7cai1mnorob" path="res://assets/ui/uiquitbutton.png" id="6_lk550"]
 [ext_resource type="Texture2D" uid="uid://btebkr537bxio" path="res://assets/background/dark-tilefloor.png" id="6_v7wp3"]
 [ext_resource type="Texture2D" uid="uid://8psiciq2w4du" path="res://assets/ui/uiquitbuttonhover.png" id="7_w4upx"]
+[ext_resource type="AudioStream" uid="uid://3xjuhygsykp0" path="res://assets/sfx/change selectionTEST-001.wav" id="14_rg61d"]
 
 [sub_resource type="SystemFont" id="SystemFont_vwfav"]
 font_names = PackedStringArray("Fantasy")
@@ -37,11 +38,14 @@ texture = ExtResource("7_w4upx")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_pndb1")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -196,3 +200,10 @@ stream = ExtResource("3_txl7r")
 volume_db = 10.0
 autoplay = true
 bus = &"Music"
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_rg61d")
+bus = &"Sound"
+
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_mouse_exited"]

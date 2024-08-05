@@ -52,7 +52,7 @@ size = Vector2(180, 437)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rabd"]
 size = Vector2(311, 445)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "entity", "raycast_collider", "raycast_above", "ShotMarker") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "entity", "raycast_collider", "raycast_above") groups=["Player"]]
 process_mode = 1
 visibility_layer = 2
 collision_layer = 3
@@ -61,7 +61,6 @@ sprite = NodePath("AnimatedSprite2D")
 entity = NodePath(".")
 raycast_collider = NodePath("FloorRayCast2D")
 raycast_above = NodePath("AboveRayCast2D")
-ShotMarker = NodePath("ShotMarker")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_82wuj")
@@ -97,14 +96,11 @@ shape = SubResource("RectangleShape2D_0rabd")
 debug_color = Color(0.64535, 0.522216, 0, 0.42)
 
 [node name="FloorRayCast2D" type="RayCast2D" parent="."]
-position = Vector2(32, 208)
+position = Vector2(30, 155)
 target_position = Vector2(120, 0)
 collision_mask = 3
 
 [node name="AboveRayCast2D" type="RayCast2D" parent="."]
-position = Vector2(32, 144)
+position = Vector2(30, 85)
 target_position = Vector2(120, 0)
 collision_mask = 3
-
-[node name="ShotMarker" type="Marker2D" parent="."]
-position = Vector2(112, -152)
