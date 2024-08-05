@@ -12,15 +12,17 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var lightprojectile = preload("res://objects/LightProjectile/LightProjectile.tscn")
-
-func _ready():
-	var lightinstance = lightprojectile
 	
-	lightinstance.position = position
-	lightinstance.position.x = position.x * characterdirection
+func fire_projectile():
+	var lightinstance = lightprojectile.instance()
 	
+	lightinstance.position = ShotMarker.position
+	lightinstance.position.x = ShotMarker.position.x * characterdirection
 	
+	lightinstance.setdirection(characterdirection)
 	
+	get_tree().root.add_child(lightinstance)
+		
 func _physics_process(delta):
 	# TODO: Put Gravity into it's own state?
 	if !is_on_floor():
