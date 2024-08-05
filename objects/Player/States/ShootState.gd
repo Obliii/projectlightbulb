@@ -6,6 +6,7 @@ var EndTime : float = 0.33
 
 func EnterState():
 	parent.sprite.play("StaffUse")
+	parent.fire_projectile()
 
 func ExitState():
 	parent.velocity.x = 0
