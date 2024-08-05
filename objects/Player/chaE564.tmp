@@ -1,0 +1,106 @@
+[gd_scene load_steps=14 format=3 uid="uid://d1ncb4sh7y5ni"]
+
+[ext_resource type="Script" path="res://objects/Player/player.gd" id="1_otwkr"]
+[ext_resource type="Script" path="res://objects/Player/PlayerStateMachine.gd" id="2_82wuj"]
+[ext_resource type="Script" path="res://objects/Player/States/WalkState.gd" id="3_mxsvf"]
+[ext_resource type="Script" path="res://objects/Player/States/IdleState.gd" id="4_4mfob"]
+[ext_resource type="Script" path="res://objects/Player/States/JumpState.gd" id="5_h8uob"]
+[ext_resource type="Script" path="res://objects/Player/States/ShootState.gd" id="6_evmj4"]
+[ext_resource type="Texture2D" uid="uid://bpwvldwfripmu" path="res://assets/charactersprites/guy-idle.png" id="6_u5cxe"]
+[ext_resource type="Texture2D" uid="uid://w6efavokca7a" path="res://assets/charactersprites/guy-jump.png" id="7_gykda"]
+[ext_resource type="Texture2D" uid="uid://2lnaa11fjl4g" path="res://assets/charactersprites/guy-walk.png" id="8_a6y0f"]
+[ext_resource type="Texture2D" uid="uid://canfxagcu0j6j" path="res://assets/charactersprites/guy-staff.png" id="9_oa0d6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjhpb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_u5cxe")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gykda")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_a6y0f")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oa0d6")
+}],
+"loop": true,
+"name": &"StaffUse",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qned3"]
+size = Vector2(180, 437)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rabd"]
+size = Vector2(311, 445)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "entity", "raycast_collider", "raycast_above") groups=["Player"]]
+process_mode = 1
+visibility_layer = 2
+collision_layer = 3
+script = ExtResource("1_otwkr")
+sprite = NodePath("AnimatedSprite2D")
+entity = NodePath(".")
+raycast_collider = NodePath("FloorRayCast2D")
+raycast_above = NodePath("AboveRayCast2D")
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_82wuj")
+initial_state = NodePath("PlayerIdleState")
+
+[node name="PlayerWalkState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("3_mxsvf")
+
+[node name="PlayerIdleState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_4mfob")
+
+[node name="PlayerJumpState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("5_h8uob")
+
+[node name="PlayerShootState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("6_evmj4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(54, 11.5)
+scale = Vector2(0.442857, 0.591463)
+sprite_frames = SubResource("SpriteFrames_pjhpb")
+animation = &"StaffUse"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+position = Vector2(35, 31.5)
+shape = SubResource("RectangleShape2D_qned3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="InteractableCollider" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(34.5, 27.5)
+shape = SubResource("RectangleShape2D_0rabd")
+debug_color = Color(0.64535, 0.522216, 0, 0.42)
+
+[node name="FloorRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(30, 155)
+target_position = Vector2(120, 0)
+collision_mask = 3
+
+[node name="AboveRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(30, 85)
+target_position = Vector2(120, 0)
+collision_mask = 3

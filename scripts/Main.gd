@@ -6,17 +6,21 @@ extends Node
 
 @export var CurrentLevelPath : String
 
-# Level Signals
-signal LevelChanged # Notifies Game that level was changed.
-signal LevelRestarted # Notifies Game that level was restarted.
-signal MusicChanged # After calling "ChangeMusic" Function.
+#
+#	LEVEL SIGNALS.
+#
 
+signal MusicChanged # After calling "ChangeMusic" Function.
 signal PuzzleCompleted # Puzzle Completed for a little jingle.
 
-signal TimeOver # Time Limit Surpassed
+#
+#	CAMERA SIGNALS
+#
 
-# Player Signals
-signal PlayerDeath # Notifies Player has died. TODO: GAME OVER????
+signal ChangeCameraMode(NewMode)
+signal ChangeCameraPos(pos: Vector2, zoom: Vector2, followplayer: bool)
+
+
 
 ##########################
 # Basic Scene Management #
@@ -28,9 +32,6 @@ func QuitGame():
 # Changing the Level by inputting a Level Path.
 func ChangeLevel(ScenePath): 
 	get_tree().change_scene_to_file(ScenePath)
-	
-	CurrentLevelPath = ScenePath
-	LevelChanged.emit()
 
 func RestartLevel():
 	ChangeLevel(CurrentLevelPath)

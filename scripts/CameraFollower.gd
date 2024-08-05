@@ -1,18 +1,21 @@
 class_name ScrollCamera
 extends Camera2D
 
-## For the Camera to be able to follow the Player.
-@export var Player: CharacterBody2D
-var max_distance = 700.0
+@export var target_zoom: Vector2 = self.zoom
+@export var zoom_smoothness: float = 0.1
 
-func check_player_position():
-	if Player.position.distance_to(self.position) > max_distance:
-		set_new_position()
+@export var PlayerCharacter : Player
+@export var follow_player : bool = true
 
-func set_new_position():
-	self.position.x = Player.position.x
+func _set_new_position(NewCameraPos : Vector2, NewCameraZoom : Vector2, FollowPlayer: bool):	
+	# Use GODOT's Position Smoothing to position the camera.
+	# Set the camera's target zoom so that the process could do the rest.
+	position = NewCameraPos
+	target_zoom = NewCameraZoom
+	follow_player = FollowPlayer
+
+func _process(delta):
+	zoom = lerp(zoom, target_zoom, zoom_smoothness * delta)
 	
-# Move Camera if Player is too far.
-func _physics_process(delta):
-	check_player_position()
-
+	if follow_player:
+		self.position.x = PlayerCharacter.position.x

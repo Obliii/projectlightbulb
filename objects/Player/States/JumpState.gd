@@ -11,12 +11,16 @@ func EnterState():
 	parent.velocity.y = JumpHeight
 
 func ExitState():
+	parent.velocity.x = 0
 	DoubleJumped = false
 
 func Physics_Update(_delta: float):
 	# If the player touches the floor then they will be in the idle state.
 	if parent.is_on_floor():
 		Transitioned.emit("PlayerIdleState")
+		
+	if Input.is_action_just_pressed("shoot"):
+		Transitioned.emit("PlayerShootState")
 	
 	# Double Jumping
 	if Input.is_action_just_pressed("jump") and !DoubleJumped:
