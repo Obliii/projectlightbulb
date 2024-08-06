@@ -14,7 +14,7 @@ extends Area2D
 # Shift the camera around oooo aaahhhhh
 @export_subgroup("Change Camera")
 ## Required if you want to have the camera move.
-@export var point : Marker2D
+@export var point : Node2D
 ## The Zoom that this camera will go to when triggered.
 @export var TargetZoom : Vector2 = Vector2(1,1)
 ## How fast the camera will move when triggered.
@@ -31,6 +31,10 @@ enum TriggerModes {
 	TRIGGER_ChangeCamera, # Player enters and the camera will change.
 	TRIGGER_ChangeScene,
 }
+
+func _ready():
+	
+	pass
 
 func _on_body_entered(body):
 	if body.is_in_group("Player") and !triggered:
