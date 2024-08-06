@@ -1,9 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk4ep2ocn4d8"]
+[gd_scene load_steps=17 format=3 uid="uid://dk4ep2ocn4d8"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_6r8w5"]
+[ext_resource type="Texture2D" uid="uid://dxuk064eev2ni" path="res://assets/ui/uiresumebutton.png" id="2_raypt"]
+[ext_resource type="Texture2D" uid="uid://b7octwiuy467j" path="res://assets/ui/uiresumebuttonhover.png" id="3_2vv64"]
+[ext_resource type="Texture2D" uid="uid://c48q7254aowgn" path="res://assets/ui/uimenubutton.png" id="4_0yjir"]
+[ext_resource type="Texture2D" uid="uid://hc3d5o8y1xqs" path="res://assets/ui/uimenubuttonhover.png" id="5_j24i1"]
+[ext_resource type="Texture2D" uid="uid://da7cai1mnorob" path="res://assets/ui/uiquitbutton.png" id="6_qrv57"]
+[ext_resource type="Texture2D" uid="uid://8psiciq2w4du" path="res://assets/ui/uiquitbuttonhover.png" id="7_v822c"]
+[ext_resource type="Script" path="res://scenes/ui/volumeSlider.gd" id="8_pbwel"]
+[ext_resource type="AudioStream" uid="uid://3xjuhygsykp0" path="res://assets/sfx/change selectionTEST-001.wav" id="9_yrp16"]
 
 [sub_resource type="SystemFont" id="SystemFont_3rbfh"]
 font_names = PackedStringArray("Fantasy")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4xplq"]
+texture = ExtResource("2_raypt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7faj"]
+texture = ExtResource("3_2vv64")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pp6wv"]
+texture = ExtResource("4_0yjir")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uk4gx"]
+texture = ExtResource("5_j24i1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbg1x"]
+texture = ExtResource("6_qrv57")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_157op"]
+texture = ExtResource("7_v822c")
 
 [node name="pause_menu" type="Control"]
 process_mode = 2
@@ -39,22 +66,71 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Resume" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_fonts/font = SubResource("SystemFont_3rbfh")
 theme_override_font_sizes/font_size = 60
-text = "Resume"
+theme_override_styles/normal = SubResource("StyleBoxTexture_4xplq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u7faj")
+
+[node name="Seperator" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
-text = "RETURN TO MENU"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_pp6wv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uk4gx")
+
+[node name="Seperator2" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Quit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("SystemFont_3rbfh")
 theme_override_font_sizes/font_size = 60
-text = "Quit"
+theme_override_styles/normal = SubResource("StyleBoxTexture_rbg1x")
+theme_override_styles/hover = SubResource("StyleBoxTexture_157op")
 
+[node name="MusicLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("8_pbwel")
+bus_name = "Music"
+
+[node name="SoundLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("8_pbwel")
+bus_name = "Sound"
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_yrp16")
+bus = &"Sound"
+
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Resume" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Menu" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Quit" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -19,6 +19,6 @@ func _on_fullscreen_check_toggled(toggled_on):
 		print("working")
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		
-# TODO: Allow the player to change the sound!
 
+func _on_mouse_entered():
+	$SoundPlayer.play()
