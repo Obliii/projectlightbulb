@@ -51,10 +51,8 @@ func _on_body_entered(body):
 				return
 			
 			TriggerModes.TRIGGER_ChangeCamera:
-				if point != null and !TargetFollowPlayer:
+				if point != null:
 					# Change where the camera is going to go.
-					ChangeCamera()
-				elif TargetFollowPlayer:
 					ChangeCamera()
 				else:
 					print("SCENE TRIGGER FAILED: Marker2D Required to show the camera where to go.")
@@ -77,7 +75,10 @@ func ActivateTrigger():
 			object.activate()
 
 func ChangeCamera():
-	GameManager.ChangeCameraPos.emit(point.global_position, TargetZoom, TargetFollowPlayer)
-
+	if !TargetFollowPlayer:
+		GameManager.ChangeCameraPos.emit(point.global_position, TargetZoom, TargetFollowPlayer)
+	else:
+		GameManager.ChangeCameraPos.emit(Vector2(0,0), TargetZoom, TargetFollowPlayer)
+	
 func ChangeScene():
 	GameManager.ChangeLevelByScenePacked(NewScene)

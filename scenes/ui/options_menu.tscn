@@ -12,6 +12,7 @@ subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_yedf8"]
 font_names = PackedStringArray("Fantasy")
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svbp6"]
 texture = ExtResource("3_7isyl")
