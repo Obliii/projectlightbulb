@@ -72,7 +72,7 @@ func ActivateTrigger():
 			object.activate()
 
 func ChangeCamera():
-	GameManager.ChangeCameraPos.emit(point, TargetZoom, TargetFollowPlayer)
+	GameManager.ChangeCameraPos.emit(point.position, TargetZoom, TargetFollowPlayer)
 
 func ChangeScene():
 	GameManager.ChangeLevelByScenePacked(NewScene)
