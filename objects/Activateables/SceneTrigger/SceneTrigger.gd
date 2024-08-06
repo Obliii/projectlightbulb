@@ -14,7 +14,7 @@ extends Area2D
 # Shift the camera around oooo aaahhhhh
 @export_subgroup("Change Camera")
 ## Required if you want to have the camera move.
-@export var point : Node2D
+@export var point : Marker2D
 ## The Zoom that this camera will go to when triggered.
 @export var TargetZoom : Vector2 = Vector2(1,1)
 ## How fast the camera will move when triggered.
@@ -33,7 +33,6 @@ enum TriggerModes {
 }
 
 func _ready():
-	
 	pass
 
 func _on_body_entered(body):
@@ -76,7 +75,7 @@ func ActivateTrigger():
 			object.activate()
 
 func ChangeCamera():
-	GameManager.ChangeCameraPos.emit(point.position, TargetZoom, TargetFollowPlayer)
+	GameManager.ChangeCameraPos.emit(point.global_position, TargetZoom, TargetFollowPlayer)
 
 func ChangeScene():
 	GameManager.ChangeLevelByScenePacked(NewScene)
