@@ -43,5 +43,5 @@ func _on_quit_pressed():
 	GameManager.QuitGame()
 	print("quiting")
 
-
-
+func _on_mouse_entered():
+	$SoundPlayer.play()
