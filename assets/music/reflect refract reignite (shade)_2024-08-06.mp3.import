@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bt8i4ytf30gno"
+path="res://.godot/imported/reflect refract reignite (shade)_2024-08-06.mp3-07f7fcb9fcac447578b4ab5fcdbfae55.mp3str"
+
+[deps]
+
+source_file="res://assets/music/reflect refract reignite (shade)_2024-08-06.mp3"
+dest_files=["res://.godot/imported/reflect refract reignite (shade)_2024-08-06.mp3-07f7fcb9fcac447578b4ab5fcdbfae55.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
