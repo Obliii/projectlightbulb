@@ -8,12 +8,18 @@ const WALKSPEED := 325.0
 var MoveSpeed
 var playerdir : float
 
+# How long ago the player climbed a step.
+var TimeLastStair : float
+
 func EnterState():
 	parent.sprite.play("Run")
 	MoveSpeed = WALKSPEED
 
 func ExitState():
 	parent.velocity.x = 0
+
+func Update(_delta: float):
+	TimeLastStair += _delta
 
 func Physics_Update(_delta: float):
 	playerdir = Input.get_axis("move_left","move_right")
@@ -52,13 +58,20 @@ func CheckStairCase():
 		
 		# If there is a way up, move the player up so they can keep moving.
 		if not raycastabove.is_colliding():
-			parent.position.y -= 32
-			parent.position.x += playerdir * 2 # This is just to make it feel smoother going up the stairs.
-		
+			parent.position.y -= 33
+			parent.position.x += playerdir * 4.5 # This is just to make it feel smoother going up the stairs.
+			TimeLastStair = 0
+	
+# Checks how long ago the stairs have been climbed so we don't get the jump animation while going up a pixel.	
+func StairsNotClimbed() -> bool:
+	if TimeLastStair > 0.06:
+		return true
+	
+	return false
 
 # If the player is in the air while they're walking then play the jump animation.
 func CheckAirborne():
-	if !parent.is_on_floor() and !parent.raycast_above.is_colliding():
+	if !parent.is_on_floor() and !parent.raycast_above.is_colliding() and StairsNotClimbed():
 		parent.sprite.play("Jump")
 	else:
 		parent.sprite.play("Run")
