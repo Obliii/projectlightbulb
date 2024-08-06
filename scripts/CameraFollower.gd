@@ -7,6 +7,9 @@ extends Camera2D
 @export var PlayerCharacter : Player
 @export var follow_player : bool = true
 
+func _ready():
+	GameManager.ChangeCameraPos.connect(_set_new_position)
+
 func _set_new_position(NewCameraPos : Vector2, NewCameraZoom : Vector2, FollowPlayer: bool):	
 	# Use GODOT's Position Smoothing to position the camera.
 	# Set the camera's target zoom so that the process could do the rest.

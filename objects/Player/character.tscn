@@ -48,7 +48,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qned3"]
-size = Vector2(180, 437)
+size = Vector2(152, 437)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rabd"]
 size = Vector2(311, 445)
@@ -88,7 +88,7 @@ sprite_frames = SubResource("SpriteFrames_pjhpb")
 animation = &"StaffUse"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
-position = Vector2(35, 31.5)
+position = Vector2(36, 31.5)
 shape = SubResource("RectangleShape2D_qned3")
 
 [node name="ShotMarker" type="Marker2D" parent="CollisionShape2D" groups=["Player"]]

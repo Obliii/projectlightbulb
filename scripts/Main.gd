@@ -32,6 +32,6 @@ func QuitGame():
 # Changing the Level by inputting a Level Path.
 func ChangeLevel(ScenePath): 
 	get_tree().change_scene_to_file(ScenePath)
-
-func RestartLevel():
-	ChangeLevel(CurrentLevelPath)
+	
+func ChangeLevelByScenePacked(ScenePacked):
+	get_tree().change_scene_to_packed(ScenePacked)
