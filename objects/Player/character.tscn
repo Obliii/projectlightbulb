@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1ncb4sh7y5ni"]
+[gd_scene load_steps=15 format=3 uid="uid://d1ncb4sh7y5ni"]
 
 [ext_resource type="Script" path="res://objects/Player/player.gd" id="1_otwkr"]
 [ext_resource type="Script" path="res://objects/Player/PlayerStateMachine.gd" id="2_82wuj"]
+[ext_resource type="PackedScene" uid="uid://c1oxo32uxilop" path="res://objects/LightProjectile/LightProjectile.tscn" id="2_d0w58"]
 [ext_resource type="Script" path="res://objects/Player/States/WalkState.gd" id="3_mxsvf"]
 [ext_resource type="Script" path="res://objects/Player/States/IdleState.gd" id="4_4mfob"]
 [ext_resource type="Script" path="res://objects/Player/States/JumpState.gd" id="5_h8uob"]
@@ -61,7 +62,8 @@ sprite = NodePath("AnimatedSprite2D")
 entity = NodePath(".")
 raycast_collider = NodePath("FloorRayCast2D")
 raycast_above = NodePath("AboveRayCast2D")
-ShotMarker = NodePath("ShotMarker")
+ShotMarker = NodePath("CollisionShape2D/ShotMarker")
+projectile_scene = ExtResource("2_d0w58")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_82wuj")
@@ -79,7 +81,7 @@ script = ExtResource("5_h8uob")
 [node name="PlayerShootState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("6_evmj4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 position = Vector2(54, 11.5)
 scale = Vector2(0.442857, 0.591463)
 sprite_frames = SubResource("SpriteFrames_pjhpb")
@@ -89,22 +91,23 @@ animation = &"StaffUse"
 position = Vector2(35, 31.5)
 shape = SubResource("RectangleShape2D_qned3")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ShotMarker" type="Marker2D" parent="CollisionShape2D" groups=["Player"]]
+position = Vector2(0, -180)
+gizmo_extents = 50.0
 
-[node name="InteractableCollider" type="CollisionShape2D" parent="Area2D"]
+[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
+
+[node name="InteractableCollider" type="CollisionShape2D" parent="Area2D" groups=["Player"]]
 position = Vector2(34.5, 27.5)
 shape = SubResource("RectangleShape2D_0rabd")
 debug_color = Color(0.64535, 0.522216, 0, 0.42)
 
-[node name="FloorRayCast2D" type="RayCast2D" parent="."]
+[node name="FloorRayCast2D" type="RayCast2D" parent="." groups=["Player"]]
 position = Vector2(32, 208)
 target_position = Vector2(120, 0)
 collision_mask = 3
 
-[node name="AboveRayCast2D" type="RayCast2D" parent="."]
+[node name="AboveRayCast2D" type="RayCast2D" parent="." groups=["Player"]]
 position = Vector2(31, 144)
 target_position = Vector2(120, 0)
 collision_mask = 3
-
-[node name="ShotMarker" type="Marker2D" parent="."]
-position = Vector2(112, -152)

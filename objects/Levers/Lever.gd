@@ -34,9 +34,6 @@ func UpdateSprite():
 
 # Activate if light enters the lever's range. Also check if player is in lever range.
 func _on_body_entered(body):
-	if body.is_in_group("light"):
-		on_lever_activated()
-		
 	if body.is_in_group("Player"):
 		PlayerInRange = true
 
@@ -44,3 +41,13 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		PlayerInRange = false
+
+
+
+func _on_area_entered(area):
+	print("Lever: Object Entered")
+	print("Area groups: ", area.get_groups())
+	
+	if area.is_in_group("Light"):
+		on_lever_activated()
+		

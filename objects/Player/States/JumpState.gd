@@ -29,6 +29,7 @@ func Physics_Update(_delta: float):
 	
 	# Same as the Move State but the player moves slightly slower while they are jumping.
 	var playerdir = Input.get_axis("move_left","move_right")
+	parent.GetDirection()
 	
 	if playerdir < 0:
 		parent.sprite.flip_h = true

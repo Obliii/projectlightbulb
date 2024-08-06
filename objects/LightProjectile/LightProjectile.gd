@@ -1,25 +1,35 @@
 extends Node2D
 
-@export var projectile_speed: float = 2.5
+@export var projectile_speed: float = 40
+@export var lifetime: float
 const WALL_LAYER = 3
 
-var direction : Vector2
+# Projectile Lifetime
+var CurrentLifetime: float
+const MAX_LIGHTLIFETIME = 5.0
+const TIMESPEED = 5.0
+
+@export var direction : Vector2 = Vector2(1,0)
 
 func _ready():
 	# Delete useless projectiles.
 	if !direction:
 		queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	position.x += direction.x * projectile_speed
-	position.y += direction.y * projectile_speed
-	
+func _process(delta):
+	CurrentLifetime += TIMESPEED * delta
+	if CurrentLifetime >= MAX_LIGHTLIFETIME:
+		queue_free()
 
-func setdirection(newdirection):
+func _physics_process(delta):
+	position += direction * projectile_speed
+func setdirection(newdirection: Vector2):
 	direction = newdirection
 
 # Object Collides with wall
 func _on_area_2d_body_entered(body):
-	if body.collision_layer & WALL_LAYER != 0:
+	if !body.is_in_group("Player") and !body.is_in_group("Interactable"):
 		queue_free()
+
+func LightFade():
+	$Sprite2D.modulate(lerpf(255,0,CurrentLifetime))

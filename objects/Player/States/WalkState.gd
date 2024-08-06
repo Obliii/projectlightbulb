@@ -17,6 +17,7 @@ func ExitState():
 
 func Physics_Update(_delta: float):
 	playerdir = Input.get_axis("move_left","move_right")
+	parent.GetDirection()
 	
 	if playerdir < 0:
 		parent.sprite.flip_h = true
