@@ -5,7 +5,6 @@ extends Node
 ########################
 
 @export var CurrentLevelPath : String
-
 #
 #	LEVEL SIGNALS.
 #
@@ -17,14 +16,11 @@ signal PuzzleCompleted # Puzzle Completed for a little jingle.
 #	CAMERA SIGNALS
 #
 
-signal ChangeCameraMode(NewMode)
-signal ChangeCameraPos(pos: Vector2, zoom: Vector2, followplayer: bool)
-
-
+signal ChangeCameraPos(pos: Vector2, zoom: Vector2, followplayerX: bool, followplayerY: bool)
 
 ##########################
 # Basic Scene Management #
-##########################\
+##########################
 
 func QuitGame():
 	get_tree().quit(1)
