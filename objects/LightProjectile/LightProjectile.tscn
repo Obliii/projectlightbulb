@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1oxo32uxilop"]
+[gd_scene load_steps=18 format=3 uid="uid://c1oxo32uxilop"]
 
 [ext_resource type="Script" path="res://objects/LightProjectile/LightProjectile.gd" id="1_6dwgk"]
 [ext_resource type="Texture2D" uid="uid://cir2te1rnt8bp" path="res://assets/Placeholder/PlaceholderMirror.png" id="1_miiqd"]
@@ -6,12 +6,81 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q16j4"]
 size = Vector2(32, 7)
 
+[sub_resource type="Curve" id="Curve_0u02p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8uge8"]
+curve = SubResource("Curve_0u02p")
+
+[sub_resource type="Curve" id="Curve_bicy7"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, -202.198, 0, 1, Vector2(1, -2.19781), -202.198, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gjwfc"]
+curve = SubResource("Curve_bicy7")
+
+[sub_resource type="Curve" id="Curve_tv6l4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.494505), -0.0766675, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n0ct6"]
+curve = SubResource("Curve_tv6l4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ane3x"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+initial_velocity_max = 68.88
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 2.25
+radial_accel_curve = SubResource("CurveTexture_gjwfc")
+scale_curve = SubResource("CurveTexture_n0ct6")
+alpha_curve = SubResource("CurveTexture_8uge8")
+
+[sub_resource type="Curve" id="Curve_fgyhu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.3, 0.0879121), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pf6yp"]
+curve = SubResource("Curve_fgyhu")
+
+[sub_resource type="Curve" id="Curve_0knya"]
+max_value = 100.0
+_data = [Vector2(0, 45.0549), 0.0, 0.0, 0, 0, Vector2(0.406667, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8c3k2"]
+curve = SubResource("Curve_0knya")
+
+[sub_resource type="Curve" id="Curve_i760o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xch5a"]
+curve = SubResource("Curve_i760o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mheo2"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 0.12
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+damping_curve = SubResource("CurveTexture_8c3k2")
+scale_curve = SubResource("CurveTexture_xch5a")
+alpha_curve = SubResource("CurveTexture_pf6yp")
+
 [node name="LightProjectile" type="Node2D" groups=["Light"]]
 position = Vector2(0, 16)
 scale = Vector2(2, 2)
 script = ExtResource("1_6dwgk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 rotation = 1.5708
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_miiqd")
@@ -26,6 +95,28 @@ input_pickable = false
 position = Vector2(2.13163e-14, -2.5)
 shape = SubResource("RectangleShape2D_q16j4")
 debug_color = Color(0.474147, 0.491646, 0.852908, 0.42)
+
+[node name="Trail" type="GPUParticles2D" parent="."]
+visible = false
+amount = 2000
+process_material = SubResource("ParticleProcessMaterial_ane3x")
+lifetime = 0.6
+speed_scale = 0.35
+fixed_fps = 0
+trail_enabled = true
+trail_lifetime = 0.12
+trail_sections = 2
+trail_section_subdivisions = 2
+
+[node name="Projectile" type="GPUParticles2D" parent="."]
+amount = 25000
+process_material = SubResource("ParticleProcessMaterial_mheo2")
+lifetime = 1.08
+speed_scale = 23.27
+randomness = 0.05
+fixed_fps = 0
+trail_enabled = true
+trail_lifetime = 0.6
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
