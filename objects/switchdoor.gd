@@ -7,8 +7,8 @@ func activate(active):
 	is_active = active
 	
 	if active:
-		$AnimationPlayer.play("moveup")
+		$AnimationPlayer.play("doormove")
 		print("MOVINGGGGGG UP")
+		$AudioStreamPlayer2D.play()
 	else:
-		$AnimationPlayer.play_backwards("moveup")
-		print("MOVINGGGGGG DOWN")
+		pass
