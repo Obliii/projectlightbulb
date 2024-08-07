@@ -67,9 +67,6 @@ func _on_body_entered(body):
 					ChangeCamera()
 				else:
 					print("SCENE TRIGGER FAILED: Marker2D Required to show the camera where to go.")
-					
-				if point != null and FollowingPlayer:
-					print("SCENE TRIGGER WARNING: Remember that a Marker2D is not needed when you are simply following the player.")
 				return	
 				
 			TriggerModes.TRIGGER_ChangeScene:
@@ -94,11 +91,11 @@ func ChangeCamera():
 	if !FollowingPlayer:
 		if point != null:
 			GameManager.ChangeCameraPos.emit(point.global_position, TargetZoom, TargetFollowPlayerX, TargetFollowPlayerY)
-		
+	elif point != null and FollowingPlayer:
+			GameManager.ChangeCameraPos.emit(point.global_position, TargetZoom, TargetFollowPlayerX, TargetFollowPlayerY)
 	elif TargetFollowPlayerX and !TargetFollowPlayerY:
 		# Vector2 is zero because it is JUST following the player. It's going to reset immediately.
-		GameManager.ChangeCameraPos.emit(Vector2(player.global_position.x, player.global_position.y - 250), TargetZoom, TargetFollowPlayerX, TargetFollowPlayerY)
-			
+		GameManager.ChangeCameraPos.emit(Vector2(player.global_position.x, player.global_position.y - 250), TargetZoom, TargetFollowPlayerX, TargetFollowPlayerY)		
 	else:
 		GameManager.ChangeCameraPos.emit(Vector2(player.global_position.x, player.global_position.y), TargetZoom, TargetFollowPlayerX, TargetFollowPlayerY)
 	
