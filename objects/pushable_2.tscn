@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_occsj")
 position = Vector2(-58, 42)
 shape = SubResource("RectangleShape2D_occsj")
 
-[node name="Up" type="Area2D" parent="."]
+[node name="Up" type="Area2D" parent="." groups=["BoxTop"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
 position = Vector2(0.5, -61.5)

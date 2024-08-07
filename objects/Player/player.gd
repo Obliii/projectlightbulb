@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var raycast_collider : RayCast2D
 @export var raycast_above : RayCast2D
 @export var ShotMarker : Marker2D
+@export var push_force = 80
 @onready var dust = $"Dust Particles"
 
 
@@ -17,11 +18,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Dust kicked up from walking.
 func _process(delta):
-	if velocity.x > 0:
+	if velocity.x > 0 and velocity.y == 0:
 		dust.emitting = true
 	else:
 		dust.emitting = false
-		
+
 func GetDirection():
 	# Just to get the real direction of the player. I'll figure out a better way next time. haha. TIME CRUNCH.
 	var dir = Input.get_axis("move_left","move_right")
@@ -48,6 +49,15 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	move_and_slide()
+	
+	#Push rigidbodies
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+
+
+
 
 
 
