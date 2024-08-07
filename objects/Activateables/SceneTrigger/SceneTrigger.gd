@@ -82,8 +82,9 @@ func _on_body_entered(body):
 
 func ActivateTrigger():
 	for object in connected_objects:
-		if object.has_method("activate"):
-			object.activate()
+		var node = get_node(object)
+		if node and node.has_method("activate"):
+				node.call("activate")
 
 func ChangeCamera():
 	var FollowingPlayer = (TargetFollowPlayerX or TargetFollowPlayerY)

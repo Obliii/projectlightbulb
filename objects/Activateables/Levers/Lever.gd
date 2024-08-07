@@ -20,8 +20,9 @@ func on_lever_activated():
 # Connects the lever to the objects that will be affected.	
 func update_connected_objects():
 	for obj in connected_objects:
-		if obj.has_method("activate"):
-			obj.activate(is_active)
+		var node = get_node(obj)
+		if node and node.has_method("activate"):
+			node.call("activate", is_active)
 
 # Updates the sprite to what the current state is.
 func UpdateSprite():
