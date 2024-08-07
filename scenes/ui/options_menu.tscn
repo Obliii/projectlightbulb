@@ -101,6 +101,34 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_svbp6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d086h")
 
+[node name="CREDITS" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "CREDITS
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CREDITS"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 39.0
+offset_right = 312.0
+offset_bottom = 270.0
+
+[node name="CREDITS2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CREDITS/VBoxContainer"]
+layout_mode = 2
+text = "Lead programmer - Obli
+Programmer - Eisendrachen
+Art Direction - tiabwwtws
+UI/Level Design - Cloudbucket
+Sound Artist  - overzealousharmony2218
+Sound Artist - Pedro Quintella
+
+Special Mentions
+StoneDoor_OpensWithChoir.wav by AudioTorpedo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ju5bi")
 bus = &"Sound"
