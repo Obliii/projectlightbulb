@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1ncb4sh7y5ni"]
+[gd_scene load_steps=20 format=3 uid="uid://d1ncb4sh7y5ni"]
 
 [ext_resource type="Script" path="res://objects/Player/player.gd" id="1_otwkr"]
 [ext_resource type="Script" path="res://objects/Player/PlayerStateMachine.gd" id="2_82wuj"]
@@ -52,6 +52,31 @@ size = Vector2(152, 437)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rabd"]
 size = Vector2(311, 445)
+
+[sub_resource type="Curve" id="Curve_ix18g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.446667, 0.824176), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8d7rc"]
+curve = SubResource("Curve_ix18g")
+
+[sub_resource type="Curve" id="Curve_fcwcq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_40g11"]
+curve = SubResource("Curve_fcwcq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_on4cf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(12, 1, 1)
+gravity = Vector3(0, -98, 0)
+scale_min = 5.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_40g11")
+color = Color(0.597176, 0.597176, 0.597176, 1)
+alpha_curve = SubResource("CurveTexture_8d7rc")
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "entity", "raycast_collider", "raycast_above", "ShotMarker") groups=["Player"]]
 process_mode = 1
@@ -111,3 +136,9 @@ collision_mask = 3
 position = Vector2(31, 144)
 target_position = Vector2(120, 0)
 collision_mask = 3
+
+[node name="Dust Particles" type="GPUParticles2D" parent="."]
+position = Vector2(-22, 246)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_on4cf")
+fixed_fps = 0

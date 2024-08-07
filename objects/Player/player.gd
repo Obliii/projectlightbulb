@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var raycast_collider : RayCast2D
 @export var raycast_above : RayCast2D
 @export var ShotMarker : Marker2D
+@onready var dust = $"Dust Particles"
+
 
 # I want the character's direction -1 (left), 1 (right)
 @export var characterdirection: int = 1
@@ -13,6 +15,13 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# Dust kicked up from walking.
+func _process(delta):
+	if velocity.x > 0:
+		dust.emitting = true
+	else:
+		dust.emitting = false
+		
 func GetDirection():
 	# Just to get the real direction of the player. I'll figure out a better way next time. haha. TIME CRUNCH.
 	var dir = Input.get_axis("move_left","move_right")

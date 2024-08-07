@@ -16,7 +16,7 @@ curve = SubResource("Curve_0u02p")
 [sub_resource type="Curve" id="Curve_bicy7"]
 min_value = -200.0
 max_value = 200.0
-_data = [Vector2(0, 200), 0.0, -202.198, 0, 1, Vector2(1, -2.19781), -202.198, 0.0, 1, 0]
+_data = [Vector2(0, 28.5714), 0.0, -30.7693, 0, 1, Vector2(1, -2.19781), -30.7693, 0.0, 1, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_gjwfc"]
@@ -34,9 +34,9 @@ particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector3(0, 0, 0)
-initial_velocity_max = 68.88
+initial_velocity_max = 23.94
 gravity = Vector3(0, 0, 0)
-radial_accel_max = 2.25
+radial_accel_max = 1.0
 radial_accel_curve = SubResource("CurveTexture_gjwfc")
 scale_curve = SubResource("CurveTexture_n0ct6")
 alpha_curve = SubResource("CurveTexture_8uge8")
@@ -97,13 +97,11 @@ shape = SubResource("RectangleShape2D_q16j4")
 debug_color = Color(0.474147, 0.491646, 0.852908, 0.42)
 
 [node name="Trail" type="GPUParticles2D" parent="."]
-visible = false
 amount = 2000
 process_material = SubResource("ParticleProcessMaterial_ane3x")
-lifetime = 0.6
-speed_scale = 0.35
+lifetime = 3.0
+speed_scale = 16.0
 fixed_fps = 0
-trail_enabled = true
 trail_lifetime = 0.12
 trail_sections = 2
 trail_section_subdivisions = 2
