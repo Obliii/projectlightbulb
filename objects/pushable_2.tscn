@@ -1,20 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://68amu3qivnav"]
+[gd_scene load_steps=6 format=3 uid="uid://68amu3qivnav"]
 
+[ext_resource type="Script" path="res://scripts/Pushable.gd" id="1_0o4rl"]
 [ext_resource type="Texture2D" uid="uid://dgk1o4q1vsgjg" path="res://icon.svg" id="1_4p5xg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fexhu"]
-size = Vector2(128, 135.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkrdv"]
+size = Vector2(126, 126)
 
-[node name="Pushable2" type="RigidBody2D" groups=["Rigidbody"]]
-process_mode = 1
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_occsj"]
+size = Vector2(22, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krwa1"]
+size = Vector2(101, 15)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
-center_of_mass_mode = 1
-lock_rotation = true
+script = ExtResource("1_0o4rl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4p5xg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.375)
-shape = SubResource("RectangleShape2D_fexhu")
+shape = SubResource("RectangleShape2D_gkrdv")
+
+[node name="Left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(56, 42)
+shape = SubResource("RectangleShape2D_occsj")
+
+[node name="Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(-58, 42)
+shape = SubResource("RectangleShape2D_occsj")
+
+[node name="Up" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+position = Vector2(0.5, -61.5)
+shape = SubResource("RectangleShape2D_krwa1")
+
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="Left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="Right" to="." method="_on_right_body_exited"]
+[connection signal="body_entered" from="Up" to="." method="_on_up_body_entered"]
+[connection signal="body_exited" from="Up" to="." method="_on_up_body_exited"]

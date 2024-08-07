@@ -27,22 +27,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvy57"]
 size = Vector2(362, 32)
 
-[sub_resource type="Animation" id="Animation_j0qqg"]
-resource_name = "moveup"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(759, 230), Vector2(759, -314)]
-}
-
 [sub_resource type="Animation" id="Animation_w73l7"]
 resource_name = "movedown"
 length = 6.0
@@ -57,6 +41,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(759, 230), Vector2(759, 230)]
+}
+
+[sub_resource type="Animation" id="Animation_j0qqg"]
+resource_name = "moveup"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(759, 230), Vector2(759, -314)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hklkf"]
@@ -797,8 +797,6 @@ libraries = {
 position = Vector2(290, -391)
 collision_layer = 3
 collision_mask = 3
-mass = 50.0
-center_of_mass_mode = 0
 
 [node name="CamTrigger" parent="GameObjects" node_paths=PackedStringArray("point") instance=ExtResource("19_tkcro")]
 position = Vector2(4031, -432)
@@ -837,10 +835,9 @@ TargetFollowPlayerX = true
 [node name="Point3" type="Marker2D" parent="GameObjects/CamTrigger3"]
 position = Vector2(81.4748, -0.163751)
 
-[node name="SceneTrigger" parent="GameObjects" node_paths=PackedStringArray("point") instance=ExtResource("19_tkcro")]
+[node name="SceneTrigger" parent="GameObjects" instance=ExtResource("19_tkcro")]
 position = Vector2(4124, -330)
 scale = Vector2(1, 31.48)
-point = NodePath("")
 
 [node name="Character" parent="." instance=ExtResource("6_b2mj7")]
 position = Vector2(3624, -142)
