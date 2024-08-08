@@ -19,15 +19,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Dust kicked up from walking.
 func _process(delta):
-	if velocity.x > 0 and velocity.y == 0:
+	if velocity.x != 0 and is_on_floor():
 		dust.emitting = true
 	else:
 		dust.emitting = false
-	
-	if velocity.x < 0 and velocity.y == 0:
-		dust2.emitting = true
-	else:
-		dust2.emitting = false
 
 func GetDirection():
 	# Just to get the real direction of the player. I'll figure out a better way next time. haha. TIME CRUNCH.

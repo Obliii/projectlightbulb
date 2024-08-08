@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://5famnhgcgeis" path="res://WorldMapTiles.tres" id="1_qs6wv"]
 [ext_resource type="PackedScene" uid="uid://d1ncb4sh7y5ni" path="res://objects/Player/character.tscn" id="3_ormrn"]
-[ext_resource type="PackedScene" uid="uid://cfxmg8xth2xch" path="res://objects/Pushable.tscn" id="3_xvl1m"]
+[ext_resource type="PackedScene" uid="uid://cfxmg8xth2xch" path="res://objects/PushableObjects/Pushable.tscn" id="3_xvl1m"]
 
 [node name="EisenDebug" type="Node2D"]
 
