@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dgk1o4q1vsgjg" path="res://icon.svg" id="1_ha57h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d6qcb"]
-friction = 0.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0nyi"]
 size = Vector2(116, 121)

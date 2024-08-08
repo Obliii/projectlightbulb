@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://objects/LightProjectile/LightProjectile.gd" id="1_6dwgk"]
 [ext_resource type="Texture2D" uid="uid://cir2te1rnt8bp" path="res://assets/Placeholder/PlaceholderMirror.png" id="1_miiqd"]
-[ext_resource type="Texture2D" uid="uid://k17gwvt2pvsg" path="res://Circlesmall.png" id="3_y0kb8"]
+[ext_resource type="Texture2D" uid="uid://k17gwvt2pvsg" path="res://assets/Circlesmall.png" id="3_gro0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q16j4"]
 size = Vector2(32, 7)
@@ -102,7 +102,7 @@ debug_color = Color(0.474147, 0.491646, 0.852908, 0.42)
 [node name="Trail" type="GPUParticles2D" parent="."]
 amount = 2000
 process_material = SubResource("ParticleProcessMaterial_ane3x")
-texture = ExtResource("3_y0kb8")
+texture = ExtResource("3_gro0d")
 lifetime = 3.0
 speed_scale = 16.0
 fixed_fps = 0
