@@ -17,14 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://d1ys20bcncrd8" path="res://objects/Activateables/Levers/Lever.tscn" id="14_1fdxo"]
 [ext_resource type="Texture2D" uid="uid://dc33y0fo0ndfr" path="res://assets/background/dark-corner-left.png" id="15_j0ebn"]
 [ext_resource type="Texture2D" uid="uid://j0xa3xia80j1" path="res://assets/background/cracked-tile-wall-1.png" id="18_nw4w8"]
-[ext_resource type="Script" path="res://objects/Elevator1.gd" id="19_lk170"]
+[ext_resource type="Script" path="res://objects/DoorsElevators/Elevator1.gd" id="19_lk170"]
 [ext_resource type="Texture2D" uid="uid://dsfbuw2atcw4j" path="res://assets/background/dark-corner-right.png" id="19_ote5u"]
 [ext_resource type="PackedScene" uid="uid://flhfa3qbbap6" path="res://objects/Activateables/SceneTrigger/SceneTrigger.tscn" id="19_tkcro"]
 [ext_resource type="Texture2D" uid="uid://dakhrsgxoyloa" path="res://assets/background/dark-wall-decorated.png" id="21_55o5x"]
-[ext_resource type="Script" path="res://objects/switchdoor.gd" id="21_punl8"]
+[ext_resource type="Script" path="res://objects/DoorsElevators/switchdoor.gd" id="21_punl8"]
 [ext_resource type="AudioStream" uid="uid://b7kft84l1hf5l" path="res://assets/sfx/Puzzle complete_door open_2024-08-07.mp3" id="23_r0lsa"]
 [ext_resource type="Texture2D" uid="uid://cnldks6vub5qh" path="res://assets/dark-roundw.png" id="23_xtnqx"]
-[ext_resource type="PackedScene" uid="uid://cfxmg8xth2xch" path="res://objects/Pushable.tscn" id="26_emd3d"]
+[ext_resource type="PackedScene" uid="uid://cfxmg8xth2xch" path="res://objects/PushableObjects/Pushable.tscn" id="26_emd3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nyfb"]
 size = Vector2(832, 27)
