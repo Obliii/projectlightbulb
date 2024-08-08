@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var ShotMarker : Marker2D
 @export var push_force = 80
 @onready var dust = $"Dust Particles"
+@onready var dust2 = $"Dust Particles2"
 
 
 # I want the character's direction -1 (left), 1 (right)
@@ -22,6 +23,11 @@ func _process(delta):
 		dust.emitting = true
 	else:
 		dust.emitting = false
+	
+	if velocity.x < 0 and velocity.y == 0:
+		dust2.emitting = true
+	else:
+		dust2.emitting = false
 
 func GetDirection():
 	# Just to get the real direction of the player. I'll figure out a better way next time. haha. TIME CRUNCH.

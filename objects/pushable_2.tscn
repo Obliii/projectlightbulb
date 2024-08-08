@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://68amu3qivnav"]
+[gd_scene load_steps=5 format=3 uid="uid://68amu3qivnav"]
 
-[ext_resource type="Script" path="res://scripts/Pushable.gd" id="1_0o4rl"]
 [ext_resource type="Texture2D" uid="uid://dgk1o4q1vsgjg" path="res://icon.svg" id="1_4p5xg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkrdv"]
@@ -15,7 +14,7 @@ size = Vector2(101, 15)
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_0o4rl")
+floor_max_angle = 1.309
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4p5xg")

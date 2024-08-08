@@ -6,7 +6,7 @@
 friction = 0.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0nyi"]
-size = Vector2(126, 128)
+size = Vector2(116, 121)
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["RigidBox"]]
 collision_layer = 2
@@ -18,4 +18,5 @@ lock_rotation = true
 texture = ExtResource("1_ha57h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_j0nyi")

@@ -115,7 +115,7 @@ sprite_frames = SubResource("SpriteFrames_pjhpb")
 animation = &"StaffUse"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
-position = Vector2(36, 31.5)
+position = Vector2(35, 32)
 shape = SubResource("RectangleShape2D_qned3")
 
 [node name="ShotMarker" type="Marker2D" parent="CollisionShape2D" groups=["Player"]]
@@ -141,6 +141,12 @@ collision_mask = 3
 
 [node name="Dust Particles" type="GPUParticles2D" parent="."]
 position = Vector2(-22, 246)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_on4cf")
+fixed_fps = 0
+
+[node name="Dust Particles2" type="GPUParticles2D" parent="."]
+position = Vector2(81, 249)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_on4cf")
 fixed_fps = 0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1oxo32uxilop"]
+[gd_scene load_steps=19 format=3 uid="uid://c1oxo32uxilop"]
 
 [ext_resource type="Script" path="res://objects/LightProjectile/LightProjectile.gd" id="1_6dwgk"]
 [ext_resource type="Texture2D" uid="uid://cir2te1rnt8bp" path="res://assets/Placeholder/PlaceholderMirror.png" id="1_miiqd"]
+[ext_resource type="Texture2D" uid="uid://k17gwvt2pvsg" path="res://Circlesmall.png" id="3_y0kb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q16j4"]
 size = Vector2(32, 7)
@@ -38,6 +39,8 @@ initial_velocity_max = 23.94
 gravity = Vector3(0, 0, 0)
 radial_accel_max = 1.0
 radial_accel_curve = SubResource("CurveTexture_gjwfc")
+scale_min = 0.0
+scale_max = 0.1
 scale_curve = SubResource("CurveTexture_n0ct6")
 alpha_curve = SubResource("CurveTexture_8uge8")
 
@@ -99,6 +102,7 @@ debug_color = Color(0.474147, 0.491646, 0.852908, 0.42)
 [node name="Trail" type="GPUParticles2D" parent="."]
 amount = 2000
 process_material = SubResource("ParticleProcessMaterial_ane3x")
+texture = ExtResource("3_y0kb8")
 lifetime = 3.0
 speed_scale = 16.0
 fixed_fps = 0
