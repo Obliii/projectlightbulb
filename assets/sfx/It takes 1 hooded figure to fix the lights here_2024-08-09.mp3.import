@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdy4wo5fut6o8"
+path="res://.godot/imported/It takes 1 hooded figure to fix the lights here_2024-08-09.mp3-9699b721ba352e3fd2d09812a18af483.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/It takes 1 hooded figure to fix the lights here_2024-08-09.mp3"
+dest_files=["res://.godot/imported/It takes 1 hooded figure to fix the lights here_2024-08-09.mp3-9699b721ba352e3fd2d09812a18af483.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
