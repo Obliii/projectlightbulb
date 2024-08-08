@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cddticbcaexly"]
+[gd_scene load_steps=6 format=3 uid="uid://cddticbcaexly"]
 
 [ext_resource type="TileSet" uid="uid://5famnhgcgeis" path="res://WorldMapTiles.tres" id="1_qs6wv"]
 [ext_resource type="PackedScene" uid="uid://d1ncb4sh7y5ni" path="res://objects/Player/character.tscn" id="3_ormrn"]
 [ext_resource type="PackedScene" uid="uid://cfxmg8xth2xch" path="res://objects/Pushable.tscn" id="3_xvl1m"]
+[ext_resource type="Texture2D" uid="uid://dgk1o4q1vsgjg" path="res://icon.svg" id="4_fj1y6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui43c"]
+size = Vector2(124.612, 121)
 
 [node name="EisenDebug" type="Node2D"]
 
@@ -19,6 +23,24 @@ safe_margin = 2.0
 
 [node name="RigidBody2D" parent="." instance=ExtResource("3_xvl1m")]
 position = Vector2(228, -162)
+can_sleep = false
 
 [node name="RigidBody2D2" parent="." instance=ExtResource("3_xvl1m")]
 position = Vector2(282, -772)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("3_xvl1m")]
+position = Vector2(1604, -590)
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4607, -95)
+scale = Vector2(57.9531, 1)
+texture = ExtResource("4_fj1y6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(1.05293, 1.5)
+shape = SubResource("RectangleShape2D_ui43c")
