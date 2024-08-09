@@ -188,5 +188,6 @@ amount = 200
 process_material = SubResource("ParticleProcessMaterial_c11qv")
 texture = ExtResource("13_4usp8")
 lifetime = 1.5
+speed_scale = 1.5
 explosiveness = 1.0
 fixed_fps = 0

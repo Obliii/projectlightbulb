@@ -18,7 +18,7 @@ func ExitState():
 #Double jump effect code
 func DoubleEffect():
 	JumpEffect.emitting = true
-	await get_tree().create_timer(.1).timeout
+	await get_tree().create_timer(.01).timeout
 	JumpEffect.emitting = false
 
 func Physics_Update(_delta: float):
