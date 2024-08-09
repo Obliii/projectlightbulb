@@ -601,6 +601,7 @@ scale = Vector2(1, 1.51425)
 texture = ExtResource("14_0pwu5")
 
 [node name="Broken-pillar3" type="Sprite2D" parent="World Elements/Pillars"]
+top_level = true
 position = Vector2(374, -673)
 rotation = 0.785397
 scale = Vector2(1, 2.75933)
@@ -631,7 +632,6 @@ texture = ExtResource("12_f1dh1")
 [node name="Cracked-pillar2" type="Sprite2D" parent="World Elements/Pillars"]
 position = Vector2(3549, -492)
 rotation = -0.261799
-scale = Vector2(1, 1)
 texture = ExtResource("12_f1dh1")
 
 [node name="Cracked-pillar3" type="Sprite2D" parent="World Elements/Pillars"]
@@ -644,7 +644,6 @@ layer = -1
 [node name="Cracked-pillar4" type="Sprite2D" parent="World Elements/Pillars/CanvasLayer"]
 position = Vector2(2628, -454)
 rotation = -0.261799
-scale = Vector2(1, 1)
 texture = ExtResource("12_f1dh1")
 
 [node name="Misc" type="Node2D" parent="World Elements"]

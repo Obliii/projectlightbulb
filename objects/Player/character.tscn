@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1ncb4sh7y5ni"]
+[gd_scene load_steps=22 format=3 uid="uid://d1ncb4sh7y5ni"]
 
 [ext_resource type="Script" path="res://objects/Player/player.gd" id="1_otwkr"]
 [ext_resource type="Script" path="res://objects/Player/PlayerStateMachine.gd" id="2_82wuj"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://w6efavokca7a" path="res://assets/charactersprites/guy-jump.png" id="7_gykda"]
 [ext_resource type="Texture2D" uid="uid://2lnaa11fjl4g" path="res://assets/charactersprites/guy-walk.png" id="8_a6y0f"]
 [ext_resource type="Texture2D" uid="uid://canfxagcu0j6j" path="res://assets/charactersprites/guy-staff.png" id="9_oa0d6"]
+[ext_resource type="Texture2D" uid="uid://x8muov803mkk" path="res://assets/Dust.png" id="12_l2jts"]
+[ext_resource type="PackedScene" uid="uid://dv62804ppc2xc" path="res://scenes/double_jump_particle.tscn" id="13_lni55"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pjhpb"]
 animations = [{
@@ -73,8 +75,8 @@ emission_shape = 3
 emission_box_extents = Vector3(12, 1, 1)
 inherit_velocity_ratio = 0.135
 gravity = Vector3(0, -166.785, 0)
-scale_min = 5.0
-scale_max = 20.0
+scale_min = 0.1
+scale_max = 2.0
 scale_curve = SubResource("CurveTexture_40g11")
 color = Color(0.597176, 0.597176, 0.597176, 1)
 alpha_curve = SubResource("CurveTexture_8d7rc")
@@ -144,4 +146,8 @@ position = Vector2(34, 246)
 emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_on4cf")
+texture = ExtResource("12_l2jts")
 fixed_fps = 0
+
+[node name="DoubleJumpParticle" parent="." instance=ExtResource("13_lni55")]
+visible = false

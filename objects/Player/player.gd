@@ -8,8 +8,6 @@ extends CharacterBody2D
 @export var ShotMarker : Marker2D
 @export var push_force = 80
 @onready var dust = $"Dust Particles"
-@onready var dust2 = $"Dust Particles2"
-
 
 # I want the character's direction -1 (left), 1 (right)
 @export var characterdirection: int = 1
