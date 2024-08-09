@@ -3,8 +3,7 @@ extends PlayerState
 
 var MoveSpeed = 300.0
 var JumpHeight = -600.0
-
-
+@onready var JumpEffect = $"../../DoubleJumpParticle"
 
 var DoubleJumped : bool = false
 
@@ -16,6 +15,11 @@ func ExitState():
 	parent.velocity.x = 0
 	DoubleJumped = false
 	
+#Double jump effect code
+func DoubleEffect():
+	JumpEffect.emitting = true
+	await get_tree().create_timer(.1).timeout
+	JumpEffect.emitting = false
 
 func Physics_Update(_delta: float):
 	# If the player touches the floor then they will be in the idle state.
@@ -29,7 +33,7 @@ func Physics_Update(_delta: float):
 	if Input.is_action_just_pressed("jump") and !DoubleJumped:
 		DoubleJumped = true
 		parent.velocity.y = JumpHeight
-		
+		DoubleEffect()
 	
 	
 	# Same as the Move State but the player moves slightly slower while they are jumping.

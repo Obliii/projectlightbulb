@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d1ncb4sh7y5ni"]
+[gd_scene load_steps=27 format=3 uid="uid://d1ncb4sh7y5ni"]
 
 [ext_resource type="Script" path="res://objects/Player/player.gd" id="1_otwkr"]
 [ext_resource type="Script" path="res://objects/Player/PlayerStateMachine.gd" id="2_82wuj"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://2lnaa11fjl4g" path="res://assets/charactersprites/guy-walk.png" id="8_a6y0f"]
 [ext_resource type="Texture2D" uid="uid://canfxagcu0j6j" path="res://assets/charactersprites/guy-staff.png" id="9_oa0d6"]
 [ext_resource type="Texture2D" uid="uid://x8muov803mkk" path="res://assets/Dust.png" id="12_l2jts"]
-[ext_resource type="PackedScene" uid="uid://dv62804ppc2xc" path="res://scenes/double_jump_particle.tscn" id="13_lni55"]
+[ext_resource type="Texture2D" uid="uid://k17gwvt2pvsg" path="res://assets/Circlesmall.png" id="13_4usp8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pjhpb"]
 animations = [{
@@ -80,6 +80,38 @@ scale_max = 2.0
 scale_curve = SubResource("CurveTexture_40g11")
 color = Color(0.597176, 0.597176, 0.597176, 1)
 alpha_curve = SubResource("CurveTexture_8d7rc")
+
+[sub_resource type="Curve" id="Curve_ds3wo"]
+_data = [Vector2(0.366667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nuw84"]
+curve = SubResource("Curve_ds3wo")
+
+[sub_resource type="Curve" id="Curve_vqv0p"]
+_data = [Vector2(0.373333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8d1kc"]
+curve = SubResource("Curve_vqv0p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c11qv"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 80.85
+initial_velocity_max = 80.85
+gravity = Vector3(0, 100, 0)
+linear_accel_max = 33.71
+radial_accel_min = -2.25
+radial_accel_max = 6.74
+scale_min = 0.0
+scale_max = 0.15
+scale_curve = SubResource("CurveTexture_8d1kc")
+alpha_curve = SubResource("CurveTexture_nuw84")
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "entity", "raycast_collider", "raycast_above", "ShotMarker") groups=["Player"]]
 process_mode = 1
@@ -149,5 +181,12 @@ process_material = SubResource("ParticleProcessMaterial_on4cf")
 texture = ExtResource("12_l2jts")
 fixed_fps = 0
 
-[node name="DoubleJumpParticle" parent="." instance=ExtResource("13_lni55")]
-visible = false
+[node name="DoubleJumpParticle" type="GPUParticles2D" parent="."]
+position = Vector2(34, 216)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_c11qv")
+texture = ExtResource("13_4usp8")
+lifetime = 1.5
+explosiveness = 1.0
+fixed_fps = 0
