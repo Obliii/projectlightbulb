@@ -4,6 +4,7 @@ extends PlayerState
 var MoveSpeed = 300.0
 var JumpHeight = -600.0
 @onready var JumpEffect = $"../../DoubleJumpParticle"
+@onready var JumpSound = $"../../JumpSound"
 
 var DoubleJumped : bool = false
 
@@ -17,6 +18,7 @@ func ExitState():
 	
 #Double jump effect code
 func DoubleEffect():
+	JumpSound.playing = true
 	JumpEffect.emitting = true
 	await get_tree().create_timer(.01).timeout
 	JumpEffect.emitting = false

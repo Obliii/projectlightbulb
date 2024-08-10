@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d1ncb4sh7y5ni"]
+[gd_scene load_steps=29 format=3 uid="uid://d1ncb4sh7y5ni"]
 
 [ext_resource type="Script" path="res://objects/Player/player.gd" id="1_otwkr"]
 [ext_resource type="Script" path="res://objects/Player/PlayerStateMachine.gd" id="2_82wuj"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://x8muov803mkk" path="res://assets/Dust.png" id="12_l2jts"]
 [ext_resource type="Texture2D" uid="uid://k17gwvt2pvsg" path="res://assets/Circlesmall.png" id="13_4usp8"]
 [ext_resource type="AudioStream" uid="uid://diuwhriv54lji" path="res://assets/sfx/Lightbeam Option1 Model1.wav" id="14_1tnu2"]
+[ext_resource type="AudioStream" uid="uid://b03ptgrmfbne6" path="res://assets/sfx/Lightbeam Option3 Model 3.wav" id="15_ms20r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pjhpb"]
 animations = [{
@@ -193,5 +194,10 @@ speed_scale = 1.5
 explosiveness = 1.0
 fixed_fps = 0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="PewSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_1tnu2")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_ms20r")
+volume_db = -2.0
+pitch_scale = 0.7

@@ -1,7 +1,8 @@
 class_name PlayerShootState
 extends PlayerState
 
-@onready var Pew = $"../../AudioStreamPlayer2D"
+@onready var Pew = $"../../PewSound"
+
 var AnimationTime : float = 0.0
 var EndTime : float = 0.33
 
