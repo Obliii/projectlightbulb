@@ -196,8 +196,10 @@ fixed_fps = 0
 
 [node name="PewSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_1tnu2")
+bus = &"Sound"
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_ms20r")
 volume_db = -2.0
 pitch_scale = 0.7
+bus = &"Sound"

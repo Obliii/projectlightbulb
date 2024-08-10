@@ -1122,7 +1122,6 @@ texture = ExtResource("30_8oig7")
 [node name="Cracked-tile-floor-13" type="Sprite2D" parent="World Elements/Floors"]
 position = Vector2(-3466, 81)
 rotation = -0.00563809
-scale = Vector2(1, 1)
 texture = ExtResource("30_8oig7")
 
 [node name="Cracked-tile-floor-10" type="Sprite2D" parent="World Elements/Floors"]
@@ -1148,7 +1147,6 @@ texture = ExtResource("30_8oig7")
 [node name="Cracked-tile-floor-5" type="Sprite2D" parent="World Elements/Floors"]
 position = Vector2(-6348, 5.00015)
 rotation = 0.199457
-scale = Vector2(1, 1)
 texture = ExtResource("30_8oig7")
 
 [node name="Cracked-tile-floor-6" type="Sprite2D" parent="World Elements/Floors"]
@@ -1159,7 +1157,6 @@ texture = ExtResource("30_8oig7")
 [node name="Cracked-tile-floor-7" type="Sprite2D" parent="World Elements/Floors"]
 position = Vector2(-7035, -174)
 rotation = 0.348962
-scale = Vector2(1, 1)
 texture = ExtResource("30_8oig7")
 
 [node name="GameObjects" type="Node2D" parent="."]
