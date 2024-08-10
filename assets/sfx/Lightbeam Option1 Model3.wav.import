@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7we7vgg081qf"
+path="res://.godot/imported/Lightbeam Option1 Model3.wav-389f1caa15a8176458271bc8cd6a2532.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Lightbeam Option1 Model3.wav"
+dest_files=["res://.godot/imported/Lightbeam Option1 Model3.wav-389f1caa15a8176458271bc8cd6a2532.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
