@@ -1,0 +1,171 @@
+[gd_scene load_steps=8 format=3 uid="uid://dml1djwlbvvja"]
+
+[ext_resource type="Script" path="res://scenes/levels/EndGame.gd" id="1_dbd37"]
+[ext_resource type="AudioStream" uid="uid://bc48ttu02yt2j" path="res://assets/music/LightThemeEND.wav" id="1_tn47n"]
+[ext_resource type="Texture2D" uid="uid://dyspt1brbbgqv" path="res://assets/background/light-pillar.png" id="2_b7ax0"]
+[ext_resource type="Texture2D" uid="uid://7tokfyqlmpnj" path="res://assets/background/light-tallw.png" id="3_q4kub"]
+[ext_resource type="Texture2D" uid="uid://0apfex365od5" path="res://assets/background/light-tilefloor.png" id="4_t5qvn"]
+[ext_resource type="Texture2D" uid="uid://b8osskvt5d4ox" path="res://assets/background/light-door-open.png" id="5_w5uv6"]
+[ext_resource type="Texture2D" uid="uid://cjvqt5m4ysnq7" path="res://assets/background/wall.png" id="6_revkd"]
+
+[node name="EndGame" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dbd37")
+
+[node name="EndMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_tn47n")
+autoplay = true
+bus = &"Music"
+
+[node name="World Elements" type="Node2D" parent="."]
+
+[node name="Dark-pillar" type="Sprite2D" parent="World Elements"]
+show_behind_parent = true
+visibility_layer = 7
+z_index = -1
+position = Vector2(291, 443.5)
+scale = Vector2(1, 0.997794)
+texture = ExtResource("2_b7ax0")
+
+[node name="Dark-pillar2" type="Sprite2D" parent="World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(890, 447)
+texture = ExtResource("2_b7ax0")
+
+[node name="Dark-pillar3" type="Sprite2D" parent="World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(1488, 448)
+texture = ExtResource("2_b7ax0")
+
+[node name="Dark-pillar4" type="Sprite2D" parent="World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(2090, 448)
+texture = ExtResource("2_b7ax0")
+
+[node name="Dark-pillar5" type="Sprite2D" parent="World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(-319, 445)
+texture = ExtResource("2_b7ax0")
+
+[node name="Dark-tallw" type="Sprite2D" parent="World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(1187, 492)
+scale = Vector2(0.9325, 0.941912)
+texture = ExtResource("3_q4kub")
+
+[node name="Dark-tallw2" type="Sprite2D" parent="World Elements"]
+show_behind_parent = true
+z_index = -1
+position = Vector2(-14, 482)
+scale = Vector2(0.9325, 0.941912)
+texture = ExtResource("3_q4kub")
+
+[node name="Dark-tilefloor" type="Sprite2D" parent="World Elements"]
+position = Vector2(234, 1109)
+texture = ExtResource("4_t5qvn")
+
+[node name="Dark-tilefloor6" type="Sprite2D" parent="World Elements"]
+position = Vector2(-127, 1110)
+texture = ExtResource("4_t5qvn")
+
+[node name="Dark-tilefloor7" type="Sprite2D" parent="World Elements"]
+position = Vector2(2042, 1111)
+texture = ExtResource("4_t5qvn")
+
+[node name="Dark-tilefloor2" type="Sprite2D" parent="World Elements"]
+position = Vector2(596, 1109)
+texture = ExtResource("4_t5qvn")
+
+[node name="Dark-tilefloor3" type="Sprite2D" parent="World Elements"]
+position = Vector2(955, 1111)
+texture = ExtResource("4_t5qvn")
+
+[node name="Dark-tilefloor4" type="Sprite2D" parent="World Elements"]
+position = Vector2(1318, 1111)
+texture = ExtResource("4_t5qvn")
+
+[node name="Dark-tilefloor5" type="Sprite2D" parent="World Elements"]
+position = Vector2(1680, 1111)
+texture = ExtResource("4_t5qvn")
+
+[node name="Light-door-open" type="Sprite2D" parent="World Elements"]
+position = Vector2(562, 882)
+scale = Vector2(0.315714, 0.299)
+texture = ExtResource("5_w5uv6")
+
+[node name="Light-door-open2" type="Sprite2D" parent="World Elements"]
+position = Vector2(1776, 885)
+scale = Vector2(0.315714, 0.299)
+texture = ExtResource("5_w5uv6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="Dark-wall-tile2" type="Sprite2D" parent="CanvasLayer"]
+texture_repeat = 2
+position = Vector2(887, 351)
+scale = Vector2(0.78175, 1.6715)
+texture = ExtResource("6_revkd")
+region_enabled = true
+region_rect = Rect2(0, 0, 8000, 1000)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1921.0
+offset_bottom = 1081.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer/MarginContainer"]
+layer = 100
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.244
+anchor_right = 0.978
+anchor_bottom = 0.858
+offset_left = -0.280006
+offset_top = -0.52002
+offset_right = 0.239868
+offset_bottom = 0.359985
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 10
+theme_override_font_sizes/normal_font_size = 36
+text = "                                                                                    Thanks for playing! 
+
+We didn't get as much as we wanted done, but this was everyone's first try in GODOT and Game Developing!
+
+There is a number of things I would personally do differently if I knew beforehand, but I guess that's what the point of the Game Jam was. To create and learn!
+
+Despite everything, I'm proud of how lots of the things have come out. The Music, The Art, and the UI!
+
+SO so proud.
+
+                                                                                   Press ESC to EXIT!"

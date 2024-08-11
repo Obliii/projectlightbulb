@@ -25,6 +25,9 @@ signal ChangeCameraPos(pos: Vector2, zoom: Vector2, followplayerX: bool, followp
 func QuitGame():
 	get_tree().quit(1)
 
+func ChangeMusic(path):
+	emit_signal("MusicChanged", path)
+
 # Changing the Level by inputting a Level Path.
 func ChangeLevel(ScenePath): 
 	get_tree().change_scene_to_file(ScenePath)

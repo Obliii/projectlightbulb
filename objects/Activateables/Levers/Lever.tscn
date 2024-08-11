@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1ys20bcncrd8"]
+[gd_scene load_steps=10 format=3 uid="uid://d1ys20bcncrd8"]
 
 [ext_resource type="Script" path="res://objects/Activateables/Levers/Lever.gd" id="1_ea8ug"]
 [ext_resource type="Texture2D" uid="uid://c1bvabvlgqy6x" path="res://assets/background/dark-lever-left.png" id="2_e0382"]
 [ext_resource type="Texture2D" uid="uid://40udiaft3wfj" path="res://assets/background/dark-lever-offcenter.png" id="3_7fy08"]
+[ext_resource type="AudioStream" uid="uid://bik3k7ulefhmo" path="res://assets/sfx/lever_off.mp3" id="3_vo8h2"]
 [ext_resource type="Texture2D" uid="uid://otkc6kmcb36h" path="res://assets/background/dark-lever-slight-right.png" id="4_rrbdp"]
 [ext_resource type="Texture2D" uid="uid://dpu82eyx3fi1a" path="res://assets/background/dark-lever-center.png" id="5_i08co"]
+[ext_resource type="AudioStream" uid="uid://dhphq8yu2wtve" path="res://assets/sfx/lever_on.mp3" id="6_ucn42"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jjtdj"]
 animations = [{
@@ -42,6 +44,8 @@ disable_mode = 1
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_ea8ug")
+On_Sound = ExtResource("6_ucn42")
+Off_Sound = ExtResource("3_vo8h2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-7, 7)
@@ -54,6 +58,10 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, -11)
 shape = SubResource("RectangleShape2D_l7h80")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ucn42")
+bus = &"Sound"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

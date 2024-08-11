@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Lightspire"
+config/name="Keeper of Fading Light"
+config/version="1"
 run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.332077, 0.30347, 0.253831, 1)
+config/icon="res://assets/testprotag.png"
 
 [autoload]
 

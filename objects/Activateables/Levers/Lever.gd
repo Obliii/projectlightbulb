@@ -4,8 +4,8 @@ extends Node2D
 @export var connected_objects: Array = []
 @export var PlayerInRange: bool = false
 
-func _ready():
-	UpdateSprite()
+@export var On_Sound: AudioStream
+@export var Off_Sound: AudioStream
 	
 func _process(delta):
 	if Input.is_action_just_pressed("activate") and PlayerInRange:
@@ -16,6 +16,13 @@ func on_lever_activated():
 	is_active = !is_active
 	UpdateSprite()
 	update_connected_objects()
+	
+	if is_active:
+		$AudioStreamPlayer2D.set_stream(On_Sound)
+	else:
+		$AudioStreamPlayer2D.set_stream(Off_Sound)
+		
+	$AudioStreamPlayer2D.play()
 
 # Connects the lever to the objects that will be affected.	
 func update_connected_objects():

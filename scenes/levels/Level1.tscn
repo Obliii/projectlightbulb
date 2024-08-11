@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bt8i4ytf30gno" path="res://assets/music/reflect refract reignite (shade)_2024-08-06.mp3" id="4_oh6tb"]
 [ext_resource type="PackedScene" uid="uid://d1ncb4sh7y5ni" path="res://objects/Player/character.tscn" id="5_hbxsg"]
 [ext_resource type="Texture2D" uid="uid://pxvb8yucudtd" path="res://assets/background/dark-wall-tile.png" id="6_75wtx"]
-[ext_resource type="PackedScene" uid="uid://flhfa3qbbap6" path="res://objects/Activateables/SceneTrigger/SceneTrigger.tscn" id="6_jf2p4"]
+[ext_resource type="PackedScene" uid="uid://flhfa3qbbap6" path="res://scripts/SceneTrigger/SceneTrigger.tscn" id="6_jf2p4"]
 [ext_resource type="Texture2D" uid="uid://cnldks6vub5qh" path="res://assets/dark-roundw.png" id="6_s8flk"]
 [ext_resource type="Texture2D" uid="uid://bs0jv6iixggj1" path="res://assets/background/dark-door-close.png" id="8_oh1sl"]
 [ext_resource type="Texture2D" uid="uid://cns4veb0n7n7y" path="res://assets/background/dark-door-open.png" id="9_jn2ib"]

@@ -8,8 +8,12 @@ extends Camera2D
 @export var follow_playerX : bool = true
 @export var follow_playerY : bool = true
 
+@export var MusicPlayer : AudioStreamPlayer2D
+@export var CurrentMusic : AudioStream
+
 func _ready():
 	GameManager.ChangeCameraPos.connect(_set_new_position)
+	GameManager.MusicChanged.connect(_ChangeMusic)
 
 func _set_new_position(NewCameraPos: Vector2, NewCameraZoom: Vector2, FollowPlayerX: bool, FollowPlayerY: bool):	
 	# Use GODOT's Position Smoothing to position the camera.
@@ -19,8 +23,16 @@ func _set_new_position(NewCameraPos: Vector2, NewCameraZoom: Vector2, FollowPlay
 	follow_playerX = FollowPlayerX
 	follow_playerY = FollowPlayerY
 
+func _ChangeMusic(path):
+	CurrentMusic = path
+	
+	MusicPlayer.set_stream(CurrentMusic)
+	MusicPlayer.play()
+
 func _process(delta):
 	zoom = lerp(zoom, target_zoom, zoom_smoothness * delta)
+	
+	self.global_position
 	
 func _physics_process(delta):
 	if follow_playerX:

@@ -1,9 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://d1ch25ec6elli"]
+[gd_scene load_steps=49 format=3 uid="uid://d1ch25ec6elli"]
 
 [ext_resource type="TileSet" uid="uid://5famnhgcgeis" path="res://WorldMapTiles.tres" id="1_3vm4t"]
 [ext_resource type="PackedScene" uid="uid://bffva8bnmfesh" path="res://objects/ScrollingCamera.tscn" id="3_cmaeq"]
 [ext_resource type="PackedScene" uid="uid://dk4ep2ocn4d8" path="res://scenes/ui/pause_menu.tscn" id="4_c8gsc"]
-[ext_resource type="AudioStream" uid="uid://c36acn5wp81tu" path="res://assets/music/reflect refract reignite (lightless)_2024-08-01.mp3" id="5_magvp"]
 [ext_resource type="Texture2D" uid="uid://pxvb8yucudtd" path="res://assets/background/dark-wall-tile.png" id="5_uv7vy"]
 [ext_resource type="PackedScene" uid="uid://d1ncb4sh7y5ni" path="res://objects/Player/character.tscn" id="6_b2mj7"]
 [ext_resource type="Texture2D" uid="uid://dj2ev5ndm07ui" path="res://assets/background/dark-ledge-left.png" id="8_nux8r"]
@@ -21,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://j0xa3xia80j1" path="res://assets/background/cracked-tile-wall-1.png" id="18_nw4w8"]
 [ext_resource type="Script" path="res://objects/DoorsElevators/Elevator1.gd" id="19_lk170"]
 [ext_resource type="Texture2D" uid="uid://dsfbuw2atcw4j" path="res://assets/background/dark-corner-right.png" id="19_ote5u"]
-[ext_resource type="PackedScene" uid="uid://flhfa3qbbap6" path="res://objects/Activateables/SceneTrigger/SceneTrigger.tscn" id="19_tkcro"]
+[ext_resource type="PackedScene" uid="uid://flhfa3qbbap6" path="res://scripts/SceneTrigger/SceneTrigger.tscn" id="19_tkcro"]
 [ext_resource type="Texture2D" uid="uid://dakhrsgxoyloa" path="res://assets/background/dark-wall-decorated.png" id="21_55o5x"]
 [ext_resource type="Script" path="res://objects/DoorsElevators/switchdoor.gd" id="21_punl8"]
 [ext_resource type="AudioStream" uid="uid://b7kft84l1hf5l" path="res://assets/sfx/Puzzle complete_door open_2024-08-07.mp3" id="23_r0lsa"]
@@ -32,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://vj2jwgs4qpjq" path="res://assets/background/cracked-tile-floor-1.png" id="30_8oig7"]
 [ext_resource type="Script" path="res://objects/Activateables/BreakableFloor.gd" id="30_k8xbm"]
 [ext_resource type="AudioStream" uid="uid://c77kr1wv3ydd0" path="res://assets/sfx/567251__iwanplays__stones-falling.mp3" id="31_b2keg"]
+[ext_resource type="Script" path="res://scripts/SceneMusicChanges.gd" id="32_srt71"]
+[ext_resource type="AudioStream" uid="uid://bt8i4ytf30gno" path="res://assets/music/reflect refract reignite (shade)_2024-08-06.mp3" id="33_5jb3n"]
+[ext_resource type="PackedScene" uid="uid://dml1djwlbvvja" path="res://scenes/levels/EndGame.tscn" id="34_aiuir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nyfb"]
 size = Vector2(832, 27)
@@ -149,13 +151,6 @@ follow_playerY = false
 [node name="pause_menu" parent="ScrollingCamera" instance=ExtResource("4_c8gsc")]
 process_mode = 3
 visible = false
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ScrollingCamera"]
-position = Vector2(194, 404)
-stream = ExtResource("5_magvp")
-volume_db = 3.067
-autoplay = true
-bus = &"Music"
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -1328,6 +1323,22 @@ shape = SubResource("RectangleShape2D_fqhwp")
 position = Vector2(647, 8.05956)
 stream = ExtResource("31_b2keg")
 
+[node name="MusicTrigger" parent="GameObjects" instance=ExtResource("19_tkcro")]
+position = Vector2(5301, -5006)
+scale = Vector2(50, 1)
+connected_objects = [NodePath("Marker2D")]
+
+[node name="Marker2D" type="Marker2D" parent="GameObjects/MusicTrigger"]
+rotation = 0.00118151
+script = ExtResource("32_srt71")
+NewMusic = ExtResource("33_5jb3n")
+
 [node name="Character" parent="." instance=ExtResource("6_b2mj7")]
 position = Vector2(-5107, -126)
 scale = Vector2(0.5, 0.5)
+
+[node name="SceneTrigger" parent="." instance=ExtResource("19_tkcro")]
+position = Vector2(9745, -4718)
+scale = Vector2(150, 1)
+mode = 2
+NewScene = ExtResource("34_aiuir")
